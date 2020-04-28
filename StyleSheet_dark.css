@@ -1,0 +1,99 @@
+﻿html {
+    height: 100%;
+    width: 100%;
+    font-family:Meiryo;
+}
+
+body {
+    height:100%;
+    width:100%;
+    margin:0;
+}
+
+/*テーマ設定*/
+.theme {
+    color: #ffffff;
+    background-color: #282828;
+    border-color:#ffffff;
+}
+
+p{
+    font-size:120%;
+    margin-bottom:3px;
+}
+
+ul{
+    margin-top:0px;
+}
+
+#logo{
+    width:250px;
+}
+
+a{
+    text-decoration:none;
+}
+
+.member_img{
+    width:78px;
+    height:78px;
+    border-radius:39px;
+    border:1px solid #000000;
+}
+
+#menu{
+    width:250px;
+    height:100%;
+    float:left;
+}
+
+#theme_select{
+    text-align:left;
+    padding-left:15px;
+}
+
+#playlist {
+    word-wrap:break-word;
+}
+
+#viewer {
+    height: 250px;
+    word-wrap: break-word;
+    border-bottom: 1px solid;
+    position:sticky;
+    position:-webkit-sticky;
+    top:0;
+    z-index:2;
+}
+
+#home{
+    display:block;
+    height:1200px;
+}
+
+#song_list {
+    display: none;
+}
+
+#settings {
+    display: none;
+}
+
+#help {
+    display: none;
+}
+
+#member {
+    word-wrap: break-word;
+}
+
+#toggle_button_block {
+    border-bottom: 1px solid;
+    text-align:center;
+}
+
+#contents {
+    overflow:auto;
+    height: 100%;
+    border-left: 1px solid;
+}

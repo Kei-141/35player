@@ -3,21 +3,74 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
-    <script>
-        function calc() {
-            var w = document.getElementById("weight").value;
-            var h = document.getElementById("height").value;
-            var r = w / (h * h);
-            document.getElementById("result").textContent = "あなたのBMIは" + r + "です";
-        }
-    </script>
+    <link rel="stylesheet" href="StyleSheet_light.css" type="text/css" id="lightmode" />
+    <link rel="stylesheet" href="#" type="text/css" id="darkmode" />
+    <link rel="icon" href="img/icon.png" />
+    <title>35Player</title>
+    <script src="MainScript.js"></script>
 </head>
-<body>
-    <h1>BMIの計算</h1>
-    体重(kg):<input id="weight" /><br />
-    身長(m):<input id="height" /><br />
-    計算:<button onclick="calc()">計算</button>
-    <p id="result"></p>
+<body class="theme">
+    <div id="menu" class="theme">
+        <img id="logo" src="img/logo.png" />
+        <p><b>Menu</b></p>
+        <ul typeof="disk" class="theme">
+            <li><a class="theme" href="javascript:toggle_contents('home');"> Home</a></li>
+            <li><a class="theme" href="javascript:toggle_contents('song_list');">Song List</a></li>
+            <li><a class="theme" href="javascript:toggle_contents('settings');">Settings</a></li>
+            <li><a class="theme" href="javascript:toggle_contents('help');">Help</a></li>
+        </ul>
+        <p><b>Theme</b></p>
+        <div id="theme_select">
+            <input type="radio" name="theme" value="light" checked="checked" onchange="changeStyle('StyleSheet_light.css')" />Light
+            <input type="radio" name="theme" value="dark" onchange="changeStyle('StyleSheet_dark.css')" />Dark
+        </div>
+        <hr>
+        <div id="playlist">
+            <p><b>Playlist</b></p>
+        </div>
+    </div>
+    <div id="contents" class="theme">
+        <div id="viewer" class="theme"></div>
+        <div id="home">
+            Home contents<br>
+        </div>
+        <div id="song_list">
+            <div id="member">
+                <img class="member_img" src="img/miko.jpg" />
+                <img class="member_img" src="img/akiroze.jpg" />
+                <img class="member_img" src="img/aqua.jpg" />
+                <img class="member_img" src="img/ayame.jpg" />
+                <img class="member_img" src="img/azki.jpg" />
+                <img class="member_img" src="img/choco.jpg" />
+                <img class="member_img" src="img/coco.jpg" />
+                <img class="member_img" src="img/flare.jpg" />
+                <img class="member_img" src="img/fubuki.jpg" />
+                <img class="member_img" src="img/haato.jpg" />
+                <img class="member_img" src="img/kanata.jpg" />
+                <img class="member_img" src="img/korone.jpg" />
+                <img class="member_img" src="img/luna.jpg" />
+                <img class="member_img" src="img/marine.jpg" />
+                <img class="member_img" src="img/matsuri.jpg" />
+                <img class="member_img" src="img/mel.jpg" />
+                <img class="member_img" src="img/mio.jpg" />
+                <img class="member_img" src="img/noel.jpg" />
+                <img class="member_img" src="img/okayu.jpg" />
+                <img class="member_img" src="img/pekora.jpg" />
+                <img class="member_img" src="img/roboco.jpg" />
+                <img class="member_img" src="img/rushia.jpg" />
+                <img class="member_img" src="img/shion.jpg" />
+                <img class="member_img" src="img/sora.jpg" />
+                <img class="member_img" src="img/subaru.jpg" />
+                <img class="member_img" src="img/suisei.jpg" />
+                <img class="member_img" src="img/towa.jpg" />
+                <img class="member_img" src="img/watame.jpg" />
+            </div>
+            <div id="toggle_button_block">
+                <input type="button" id="toggle_button" value="Hide Member List" onclick="toggle_memberlist()" />
+            </div>
+        </div>
+        <div id="settings">Settings contents</div>
+        <div id="help">Help contents</div>
+    </div>
 </body>
 </html>
