@@ -57,6 +57,7 @@ a{
 }
 
 #viewer {
+    overflow:auto;
     height: 250px;
     word-wrap: break-word;
     border-bottom: 1px solid;
@@ -64,6 +65,7 @@ a{
     position:-webkit-sticky;
     top:0;
     z-index:2;
+    resize:vertical;
 }
 
 #home{
