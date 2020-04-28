@@ -1,37 +1,37 @@
 ﻿html {
     height: 100%;
     width: 100%;
-    font-family:Meiryo;
+    font-family: Meiryo;
 }
 
 body {
-    height:100%;
-    width:100%;
-    margin:0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 /*テーマ設定*/
 .theme {
     color: #ffffff;
     background-color: #282828;
-    border-color:#ffffff;
+    border-color: #ffffff;
 }
 
-p{
-    font-size:120%;
-    margin-bottom:3px;
+p {
+    font-size: 120%;
+    margin-bottom: 3px;
 }
 
-ul{
-    margin-top:0px;
+ul {
+    margin-top: 0px;
 }
 
-#logo{
-    width:250px;
+#logo {
+    width: 250px;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
 }
 
 #member img {
@@ -41,19 +41,19 @@ a{
     border: 1px solid #000000;
 }
 
-#menu{
-    width:250px;
-    height:100%;
-    float:left;
+#menu {
+    width: 250px;
+    height: 100%;
+    float: left;
 }
 
-#theme_select{
-    text-align:left;
-    padding-left:15px;
+#theme_select {
+    text-align: left;
+    padding-left: 15px;
 }
 
 #playlist {
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
 
 #viewer {
@@ -64,17 +64,24 @@ a{
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    z-index: 2;
+    z-index: 3;
     resize: vertical;
 }
 
-#home{
-    display:block;
-    height:1200px;
+#home {
+    display: block;
+    height: 1200px;
 }
 
 #song_list {
     display: none;
+}
+
+#song_list_child {
+    height: auto;
+    width: auto;
+    overflow: scroll;
+    display: inline-block;
 }
 
 #settings {
@@ -91,11 +98,11 @@ a{
 
 #toggle_button_block {
     border-bottom: 1px solid;
-    text-align:center;
+    text-align: center;
 }
 
 #contents {
-    overflow:auto;
+    overflow: auto;
     height: 100%;
     border-left: 1px solid;
 }

@@ -1,13 +1,13 @@
 ﻿html {
     height: 100%;
     width: 100%;
-    font-family:Meiryo;
+    font-family: Meiryo;
 }
 
 body {
-    height:100%;
-    width:100%;
-    margin:0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 /*テーマ設定*/
@@ -17,64 +17,84 @@ body {
     border-color: #000000;
 }
 
-p{
-    font-size:120%;
-    margin-bottom:3px;
+p {
+    font-size: 120%;
+    margin-bottom: 3px;
 }
 
-ul{
-    margin-top:0px;
+ul {
+    margin-top: 0px;
 }
 
-#logo{
-    width:250px;
+#logo {
+    width: 250px;
 }
 
 a{
-    text-decoration:none;
+    text-decoration: none;
 }
 
-#member img{
-    width:78px;
-    height:78px;
-    border-radius:39px;
-    border:1px solid #000000;
+#member img {
+    width: 78px;
+    height: 78px;
+    border-radius: 39px;
+    border: 1px solid #000000;
 }
 
-#menu{
-    width:250px;
-    height:100%;
-    float:left;
+#menu {
+    width: 250px;
+    height: 100%;
+    float: left;
 }
 
-#theme_select{
-    text-align:left;
-    padding-left:15px;
+#theme_select {
+    text-align: left;
+    padding-left: 15px;
 }
 
 #playlist {
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
 
 #viewer {
-    overflow:auto;
+    overflow: auto;
     height: 250px;
     word-wrap: break-word;
     border-bottom: 1px solid;
-    position:sticky;
-    position:-webkit-sticky;
-    top:0;
-    z-index:2;
-    resize:vertical;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 3;
+    resize: vertical;
 }
 
-#home{
-    display:block;
-    height:1200px;
+#home {
+    display: block;
+    height: 1200px;
 }
 
 #song_list {
     display: none;
+}
+
+.song_list_child {
+    height: auto;
+    width: auto;
+    border: 1px solid;
+    margin: 3px;
+    padding: 3px;
+    display: inline-block;
+}
+
+.song_list_child img{
+    width: 250px;
+    margin: 3px;
+    border: 1px solid;
+}
+
+.song_list_child div{
+    width: 500px;
+    font-size: 12px;
 }
 
 #settings {
@@ -91,11 +111,11 @@ a{
 
 #toggle_button_block {
     border-bottom: 1px solid;
-    text-align:center;
+    text-align: center;
 }
 
 #contents {
-    overflow:auto;
+    overflow: auto;
     height: 100%;
     border-left: 1px solid;
 }
