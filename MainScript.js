@@ -39,8 +39,8 @@ function load_db(member_name) {
             return response.json();
         })
         .then(function (json) {
-            var div_list = document.createElement("div");
             for (i = 0; i < json.length; i++) {
+                var div_list = document.createElement("div");
                 var div_id = "song_list_child_" + i;
                 div_list.setAttribute("id", div_id);
                 div_list.setAttribute("class", "song_list_child");
@@ -61,11 +61,11 @@ function gen_songlist(json, div_id, member_name) {
     thumbs.setAttribute("src", thumbs_url);
     document.getElementById(div_id).appendChild(thumbs);
 
-    for (i = 2; i < json.length; i++) {
+    for (j = 2; j < json.length; j++) {
         var list = document.createElement("div");
-        var button_ref = ["\'" + member_name + "\'", "\'" + json[i].song_name + "\'", "\'" + json[i].artist_name + "\'", json[i].start, json[i].end];
+        var button_ref = ["\'" + member_name + "\'", "\'" + json[j].song_name + "\'", "\'" + json[j].artist_name + "\'", json[j].start, json[j].end];
         list.innerHTML = "<button type='button' onclick=" + "javascript:add_playlist(" + button_ref +
-            ");>Add</button>&nbsp;" + (i - 1) + " : " + json[i].song_name + "&nbsp;/&nbsp;" + json[i].artist_name;
+            ");>Add</button>&nbsp;" + (j - 1) + " : " + json[j].song_name + "&nbsp;/&nbsp;" + json[j].artist_name;
         document.getElementById(div_id).appendChild(list);
     }
 }
