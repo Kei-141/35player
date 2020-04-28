@@ -40,6 +40,10 @@ function load_db(member_name) {
             return response.json();
         })
         .then(function (json) {
-            alert(json.name);
+            alert(json.length);
         });
+}
+
+function add_songlist(json) {
+
 }
