@@ -1,4 +1,4 @@
-// JavaScript source code
+// All rights reserved by author/
 
 //テーマ切替
 function changeStyle(style) {
@@ -33,6 +33,8 @@ function toggle_memberlist() {
 
 //DB読み込み＆表示関数呼び出し
 function load_db(member_name) {
+    var ele = document.getElementById("selected_member");
+    ele.innerHTML = "";
     var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
     fetch(url)
         .then(function (response) {
@@ -63,7 +65,7 @@ function gen_songlist(json, div_id, member_name) {
 
     for (j = 2; j < json.length; j++) {
         var list = document.createElement("div");
-        var button_ref = ["\'" + member_name + "\'", "\'" + json[j].song_name + "\'", "\'" + json[j].artist_name + "\'", json[j].start, json[j].end];
+        var button_ref = ["\'" + replace_space(member_name) + "\'", "\'" + replace_space(json[j].song_name) + "\'", "\'" + replace_space(json[j].artist_name) + "\'", json[j].start, json[j].end];
         list.innerHTML = "<button type='button' onclick=" + "javascript:add_playlist(" + button_ref +
             ");>Add</button>&nbsp;" + (j - 1) + " : " + json[j].song_name + "&nbsp;/&nbsp;" + json[j].artist_name;
         document.getElementById(div_id).appendChild(list);
@@ -72,9 +74,27 @@ function gen_songlist(json, div_id, member_name) {
 
 //プレイリスト登録
 function add_playlist(liver, name, artist, start, end) {
-    alert(liver);
-    alert(name);
-    alert(artist);
-    alert(start);
-    alert(end);
+    var list_elem = document.getElementById("playlist");
+    var count = list_elem.childElementCount;
+
+    var liver_thumbs_path = "img/" + liver + ".jpg";
+
+    var time_min = Math.floor((end - start) / 60);
+    var time_sec = (end - start) % 60;
+    if (time_sec < 10) {
+        var time_sec_fix = "0" + time_sec;
+    } else {
+        time_sec_fix = time_sec;
+    }
+
+    var song_id = "song" + (count + 1);
+    var song = document.createElement("div");
+    song.setAttribute("id", song_id);
+    song.innerHTML = "<img src='" + liver_thumbs_path + "' />&nbsp;" + "<span>" + count + "&nbsp;:&nbsp;</span>" + name + "&nbsp;/&nbsp;" + artist + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix;
+    document.getElementById("playlist").appendChild(song);
+}
+
+//空白文字置換
+function replace_space(str) {
+    return str.replace(/\s+/g, "&nbsp;");
 }
