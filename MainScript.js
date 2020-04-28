@@ -32,12 +32,14 @@ function toggle_memberlist() {
 }
 
 //DBì«Ç›çûÇ›Åïï\é¶
+
 function load_db(member_name) {
-    fetch("db/" + member_name + ".json")
+    var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
+    fetch(url)
         .then(function (response) {
-            return response.text;
+            return response.json();
         })
-        .then(function (text) {
-            alert(text);
+        .then(function (json) {
+            alert(json.name);
         });
 }
