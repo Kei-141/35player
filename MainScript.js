@@ -1,4 +1,4 @@
-// All rights reserved by author/
+// All rights reserved by author.
 
 //デバッグ用
 function test() {
@@ -73,9 +73,18 @@ function gen_songlist(json, div_id, member_name) {
 
     for (j = 2; j < json.length; j++) {
         var list = document.createElement("div");
+
+        var time_min = Math.floor((json[j].end - json[j].start) / 60);
+        var time_sec = (json[j].end - json[j].start) % 60;
+        if (time_sec < 10) {
+            var time_sec_fix = "0" + time_sec;
+        } else {
+            time_sec_fix = time_sec;
+        }
+
         var button_ref = ["\'" + replace_space(member_name) + "\'", "\'" + replace_space(json[j].song_name) + "\'", "\'" + replace_space(json[j].artist_name) + "\'", json[j].start, json[j].end, vid_id];
         list.innerHTML = "<button type='button' onclick=" + "javascript:add_playlist(" + button_ref +
-            ");>Add</button>&nbsp;" + (j - 1) + " : " + json[j].song_name + "&nbsp;/&nbsp;" + json[j].artist_name;
+            ");>Add</button>&nbsp;" + (j - 1) + " : " + json[j].song_name + "&nbsp;/&nbsp;" + json[j].artist_name + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix;
         document.getElementById(div_id).appendChild(list);
     }
 }
@@ -111,12 +120,24 @@ function replace_space(str) {
     return str.replace(/\s+/g, "&nbsp;");
 }
 
+//再生中の曲情報格納
+var now_playing = 0;
+var playing_id;
+
 //プレイリスト再生
 function play_list() {
+    now_playing = (now_playing == 0) ? 1 : now_playing;
+    playing_id = "song" + now_playing;
+    var video_url = playing_id + "_url";
+    var video_start = playing_id + "_start";
+    var video_end = playing_id + "_end";
+
+    var play_elem = document.getElementById(playing_id);
+    play_elem.setAttribute("class", "playing");
     player.loadVideoById({
-        'videoId': document.getElementById("song1_url").textContent,
-        'startSeconds': document.getElementById("song1_start").textContent,
-        'endSeconds': document.getElementById("song1_end").textContent,
+        'videoId': document.getElementById(video_url).textContent,
+        'startSeconds': document.getElementById(video_start).textContent,
+        'endSeconds': document.getElementById(video_end).textContent,
     })
 }
 
@@ -126,26 +147,29 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '200',
         width: '480',
-        videoId: '0o3VrBLh8jI', //この動画IDは公式チャンネルから適当に設定
+        videoId: '0o3VrBLh8jI', //この動画IDは公式チャンネルから適当に設定（未設定だと動かない）
+        playerVars: { 'rel': 0 },
         events: {
-            'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         }
     });
 }
 
-function onPlayerReady(event) {
-    event.target.playVideo();
-}
-
-var done = false;
+//再生終了時実行（次の曲）
 function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
-        done = true;
-    }
-}
+    if (event.data == YT.PlayerState.ENDED) {
+        player.seekTo(0); //前曲の終了時間が次曲の開始時間を超える場合即終了処理が実行される問題に対処
+        var play_elem = document.getElementById(playing_id);
+        play_elem.setAttribute("class", "");
 
-function stopVideo() {
-    player.stopVideo();
+        //リスト最後尾分岐
+        var elem_count = document.getElementById("playlist");
+        if (elem_count.childElementCount <= now_playing) {
+            player.stopVideo();
+            now_playing = 0;
+        } else {
+            now_playing += 1;
+            play_list();
+        }
+    }
 }
