@@ -1,11 +1,5 @@
 // All rights reserved by author.
 
-//デバッグ用
-function test() {
-    var str = document.getElementById("song1_url").textContent;
-    alert(str);
-}
-
 //テーマ切替
 function changeStyle(style) {
     var linkstyle = document.getElementById("darkmode");
