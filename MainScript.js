@@ -167,3 +167,49 @@ function onPlayerStateChange(event) {
         }
     }
 }
+
+//プレイリスト消去
+function all_clear() {
+    player.stopVideo();
+    var play_elem = document.getElementById("playlist");
+    play_elem.innerHTML = "";
+}
+
+//再生停止
+function play_stop() {
+    player.stopVideo();
+    class_reset();
+    now_playing = 0;
+    playing_id = "";
+}
+
+//次曲
+function play_next() {
+    class_reset();
+    var elem_count = document.getElementById("playlist");
+    if (now_playing < elem_count.childElementCount) {
+        now_playing += 1;
+        play_list();
+    } else {
+        play_stop();
+    }
+}
+
+//前曲
+function play_previous() {
+    class_reset();
+    if (now_playing > 1) {
+        now_playing -= 1;
+        play_list();
+    } else {
+        play_stop();
+    }
+}
+
+//再生中の色変更リセット
+function class_reset() {
+    if (now_playing != 0) {
+        var play_elem = document.getElementById(playing_id);
+        play_elem.setAttribute("class", "");
+    }
+}

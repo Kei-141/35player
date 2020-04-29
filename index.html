@@ -35,11 +35,15 @@
         <div id="playlist_container">
             <p><b>Playlist</b></p>
             <div id="play_control">
-                <input type="button" id="play_button" value="Play▶" onclick="play_list()" />
+                <input type="button" value="Prev" onclick="play_previous()" />
+                <input type="button" value="Play" onclick="play_list()" />
+                <input type="button" value="Stop" onclick="play_stop()" />
+                <input type="button" value="Next" onclick="play_next()" />
             </div>
             <div id="playlist">
                 <!--ここに選択した曲を追加-->
             </div>
+            <input type="button" id="clear_button" value="Playlist Clear" onclick="all_clear()" />
         </div>
     </div>
     <div id="contents" class="theme">

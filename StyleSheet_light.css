@@ -1,4 +1,11 @@
-﻿html {
+﻿/*テーマ設定*/
+.theme {
+    color: #000000;
+    background-color: #ededed;
+    border-color: #000000;
+}
+
+html {
     height: 100%;
     width: 100%;
     font-family: Meiryo;
@@ -8,13 +15,6 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-}
-
-/*テーマ設定*/
-.theme {
-    color: #000000;
-    background-color: #ededed;
-    border-color: #000000;
 }
 
 p {
@@ -30,7 +30,7 @@ ul {
     width: 250px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -41,7 +41,7 @@ a{
     border: 1px solid #000000;
 }
 
-#member .disable{
+#member .disable {
     display: none;
 }
 
@@ -57,18 +57,37 @@ a{
     padding-left: 15px;
 }
 
-#play_control{
-    margin: 2px;
-    text-align:center;
-    border: 1px solid;
+#playlist_container {
+    text-align: center;
 }
 
-#playlist div{
+#playlist_container p {
+    text-align: left;
+    width: 250px;
+}
+
+#play_control {
+    margin: 1px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#play_control input {
+    height: 30px;
+    width: 55px;
+}
+
+#clear_button {
+    width: 236px;
+}
+
+#playlist div {
     font-size: 12px;
     border: 1px solid;
     margin: 2px;
     overflow: auto;
     white-space: nowrap;
+    text-align: left;
 }
 
 #playlist img{
