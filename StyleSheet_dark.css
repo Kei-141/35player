@@ -86,6 +86,7 @@ a {
 
 .playing {
     background-color: aquamarine;
+    color: #000000;
 }
 
 #viewer {
