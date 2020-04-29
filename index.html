@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="#" type="text/css" id="darkmode" />
     <link rel="icon" href="img/icon.png" />
     <title>35Player</title>
+
+    <!--Load IFrame Player API-->
+    <script>
+        var tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+
     <script src="MainScript.js" charset="utf-8"></script>
 </head>
 <body class="theme">
@@ -24,6 +33,8 @@
             <input type="radio" name="theme" value="light" checked="checked" onchange="changeStyle('StyleSheet_light.css')" />Light
             <input type="radio" name="theme" value="dark" onchange="changeStyle('StyleSheet_dark.css')" />Dark
         </div>
+        <!--Debug Button-->
+        <input type="button" id="test_button" value="Debug Button" onclick="test()" />
         <hr>
         <div id="playlist_container">
             <p><b>Playlist</b></p>
@@ -37,7 +48,8 @@
     </div>
     <div id="contents" class="theme">
         <div id="viewer" class="theme">
-            <input type="button" id="test_button" value="Debug Button" onclick="test()" />
+            <!--YouTube Player-->
+            <div id="player"></div>
         </div>
         <div id="home">
             Home contents<br>

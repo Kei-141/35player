@@ -113,5 +113,39 @@ function replace_space(str) {
 
 //プレイリスト再生
 function play_list() {
+    player.loadVideoById({
+        'videoId': document.getElementById("song1_url").textContent,
+        'startSeconds': document.getElementById("song1_start").textContent,
+        'endSeconds': document.getElementById("song1_end").textContent,
+    })
+}
 
+//APIロード時に自動実行
+var player;
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '200',
+        width: '480',
+        videoId: '0o3VrBLh8jI', //この動画IDは公式チャンネルから適当に設定
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.playVideo();
+}
+
+var done = false;
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+        setTimeout(stopVideo, 6000);
+        done = true;
+    }
+}
+
+function stopVideo() {
+    player.stopVideo();
 }
