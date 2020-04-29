@@ -1,5 +1,11 @@
 // All rights reserved by author/
 
+//デバッグ用
+function test() {
+    var str = document.getElementById("song1_url").textContent;
+    alert(str);
+}
+
 //テーマ切替
 function changeStyle(style) {
     var linkstyle = document.getElementById("darkmode");
@@ -63,9 +69,11 @@ function gen_songlist(json, div_id, member_name) {
     thumbs.setAttribute("src", thumbs_url);
     document.getElementById(div_id).appendChild(thumbs);
 
+    var vid_id = "\'" + json[1] + "\'"
+
     for (j = 2; j < json.length; j++) {
         var list = document.createElement("div");
-        var button_ref = ["\'" + replace_space(member_name) + "\'", "\'" + replace_space(json[j].song_name) + "\'", "\'" + replace_space(json[j].artist_name) + "\'", json[j].start, json[j].end];
+        var button_ref = ["\'" + replace_space(member_name) + "\'", "\'" + replace_space(json[j].song_name) + "\'", "\'" + replace_space(json[j].artist_name) + "\'", json[j].start, json[j].end, vid_id];
         list.innerHTML = "<button type='button' onclick=" + "javascript:add_playlist(" + button_ref +
             ");>Add</button>&nbsp;" + (j - 1) + " : " + json[j].song_name + "&nbsp;/&nbsp;" + json[j].artist_name;
         document.getElementById(div_id).appendChild(list);
@@ -73,7 +81,7 @@ function gen_songlist(json, div_id, member_name) {
 }
 
 //プレイリスト登録
-function add_playlist(liver, name, artist, start, end) {
+function add_playlist(liver, name, artist, start, end, vid_id) {
     var list_elem = document.getElementById("playlist");
     var count = list_elem.childElementCount;
 
@@ -88,13 +96,22 @@ function add_playlist(liver, name, artist, start, end) {
     }
 
     var song_id = "song" + (count + 1);
+    var song_url = song_id + "_url";
+    var song_start = song_id + "_start";
+    var song_end = song_id + "_end";
     var song = document.createElement("div");
     song.setAttribute("id", song_id);
-    song.innerHTML = "<img src='" + liver_thumbs_path + "' />&nbsp;" + "<span>" + count + "&nbsp;:&nbsp;</span>" + name + "&nbsp;/&nbsp;" + artist + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix;
+    song.innerHTML = "<img src='" + liver_thumbs_path + "' />&nbsp;" + "<span>" + (count + 1) + "&nbsp;:&nbsp;</span>" + name + "&nbsp;/&nbsp;" + artist + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix +
+        "<var id='" + song_url + "'>" + vid_id + "</var>" + "<var id='" + song_start + "'>" + start + "</var>" + "<var id='" + song_end + "'>" + end + "</var>";
     document.getElementById("playlist").appendChild(song);
 }
 
 //空白文字置換
 function replace_space(str) {
     return str.replace(/\s+/g, "&nbsp;");
+}
+
+//プレイリスト再生
+function play_list() {
+
 }

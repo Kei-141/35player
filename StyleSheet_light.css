@@ -41,6 +41,10 @@ a{
     border: 1px solid #000000;
 }
 
+#member .disable{
+    display: none;
+}
+
 #menu {
     width: 250px;
     height: 100%;
@@ -52,14 +56,18 @@ a{
     padding-left: 15px;
 }
 
-#playlist_container {
-    word-wrap: normal;
+#play_control{
+    margin: 2px;
+    text-align:center;
+    border: 1px solid;
 }
 
 #playlist div{
     font-size: 12px;
     border: 1px solid;
     margin: 2px;
+    overflow: auto;
+    white-space: nowrap;
 }
 
 #playlist img{
@@ -71,16 +79,19 @@ a{
     border: 1px solid;
 }
 
+#playlist var{
+    display: none;
+}
+
 #viewer {
     overflow: auto;
-    height: 250px;
+    height: 200px;
     word-wrap: normal;
     border-bottom: 1px solid;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     z-index: 3;
-    resize: vertical;
 }
 
 #home {

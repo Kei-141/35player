@@ -27,47 +27,52 @@
         <hr>
         <div id="playlist_container">
             <p><b>Playlist</b></p>
+            <div id="play_control">
+                <input type="button" id="play_button" value="Play▶" onclick="play_list()" />
+            </div>
             <div id="playlist">
-
+                <!--ここに選択した曲を追加-->
             </div>
         </div>
     </div>
     <div id="contents" class="theme">
-        <div id="viewer" class="theme"></div>
+        <div id="viewer" class="theme">
+            <input type="button" id="test_button" value="Debug Button" onclick="test()" />
+        </div>
         <div id="home">
             Home contents<br>
         </div>
         <div id="song_list">
             <div id="member">
                 <a href="javascript:load_db('miko');"><img src="img/miko.jpg" /></a>
-                    <img src="img/akiroze.jpg" />
-                    <img src="img/aqua.jpg" />
-                    <img src="img/ayame.jpg" />
-                    <img src="img/azki.jpg" />
-                    <img src="img/choco.jpg" />
-                    <img src="img/coco.jpg" />
-                    <img src="img/flare.jpg" />
-                    <img src="img/fubuki.jpg" />
-                    <img src="img/haato.jpg" />
-                    <img src="img/kanata.jpg" />
-                    <img src="img/korone.jpg" />
-                    <img src="img/luna.jpg" />
-                    <img src="img/marine.jpg" />
-                    <img src="img/matsuri.jpg" />
-                    <img src="img/mel.jpg" />
-                    <img src="img/mio.jpg" />
-                    <img src="img/noel.jpg" />
-                    <img src="img/okayu.jpg" />
-                    <img src="img/pekora.jpg" />
-                    <img src="img/roboco.jpg" />
-                    <img src="img/rushia.jpg" />
-                    <img src="img/shion.jpg" />
-                    <img src="img/sora.jpg" />
-                    <img src="img/subaru.jpg" />
-                    <img src="img/suisei.jpg" />
-                    <img src="img/towa.jpg" />
-                    <img src="img/watame.jpg" />
-</div>
+                    <img class="disable" src="img/akiroze.jpg" />
+                    <img class="disable" src="img/aqua.jpg" />
+                    <img class="disable" src="img/ayame.jpg" />
+                    <img class="disable" src="img/azki.jpg" />
+                    <img class="disable" src="img/choco.jpg" />
+                    <img class="disable" src="img/coco.jpg" />
+                    <img class="disable" src="img/flare.jpg" />
+                    <img class="disable" src="img/fubuki.jpg" />
+                    <img class="disable" src="img/haato.jpg" />
+                    <img class="disable" src="img/kanata.jpg" />
+                    <img class="disable" src="img/korone.jpg" />
+                    <img class="disable" src="img/luna.jpg" />
+                    <img class="disable" src="img/marine.jpg" />
+                    <img class="disable" src="img/matsuri.jpg" />
+                    <img class="disable" src="img/mel.jpg" />
+                    <img class="disable" src="img/mio.jpg" />
+                    <img class="disable" src="img/noel.jpg" />
+                    <img class="disable" src="img/okayu.jpg" />
+                    <img class="disable" src="img/pekora.jpg" />
+                    <img class="disable" src="img/roboco.jpg" />
+                    <img class="disable" src="img/rushia.jpg" />
+                    <img class="disable" src="img/shion.jpg" />
+                    <img class="disable" src="img/sora.jpg" />
+                    <img class="disable" src="img/subaru.jpg" />
+                    <img class="disable" src="img/suisei.jpg" />
+                    <img class="disable" src="img/towa.jpg" />
+                    <img class="disable" src="img/watame.jpg" />
+            </div>
             <div id="toggle_button_block">
                 <input type="button" id="toggle_button" value="Hide Member List" onclick="toggle_memberlist()" />
             </div>
