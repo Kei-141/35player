@@ -361,7 +361,7 @@ function initialize() {
     //プレイリスト読み込み
     var elem = document.getElementById("playlist");
     var text = localStorage.getItem("playlist");
-    if (text != "") {
+    if (text != null) {
         text = text.replace(/ class="playing"/, "");
         text = text.replace(/ class/, "");
         elem.innerHTML = text;
