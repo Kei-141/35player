@@ -50,6 +50,7 @@ a {
     height: 100%;
     float: left;
     overflow: auto;
+    border-right: 1px solid;
 }
 
 #theme_select {
@@ -63,6 +64,7 @@ a {
 
 #playlist_container p {
     text-align: left;
+    vertical-align: middle;
     width: 250px;
 }
 
@@ -70,15 +72,27 @@ a {
     margin: 1px;
     text-align: center;
     vertical-align: middle;
+    font-size: 12px;
 }
 
 #play_control input {
     height: 30px;
     width: 50px;
+    font-size: 12px;
+}
+
+#loop {
+    height: 12px;
+    width: 12px;
+    margin-left: 20px;
+}
+
+#loop_text {
+    font-size: 12px;
 }
 
 #clear_button {
-    width: 216px;
+    width: 210px;
 }
 
 #playlist div {
@@ -90,7 +104,7 @@ a {
     text-align: left;
 }
 
-#playlist img {
+#playlist img{
     width: 16px;
     height: 16px;
     margin-top: 5px;
@@ -99,7 +113,7 @@ a {
     border: 1px solid;
 }
 
-#playlist var {
+#playlist var{
     display: none;
 }
 
@@ -107,8 +121,7 @@ a {
     font-size: 10px;
 }
 
-
-.playing {
+.playing{
     background-color: aquamarine;
     color: #000000;
 }
@@ -143,17 +156,15 @@ a {
     display: inline-block;
 }
 
-.song_list_child img {
+.song_list_child img{
     width: 250px;
     margin: 3px;
     border: 1px solid;
-
 }
 
-.song_list_child div {
+.song_list_child div{
     width: 500px;
     font-size: 12px;
-
 }
 
 #settings {
@@ -176,5 +187,4 @@ a {
 #contents {
     overflow: auto;
     height: 100%;
-    border-left: 1px solid;
 }

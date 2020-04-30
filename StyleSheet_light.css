@@ -50,6 +50,7 @@ a {
     height: 100%;
     float: left;
     overflow: auto;
+    border-right: 1px solid;
 }
 
 #theme_select {
@@ -63,6 +64,7 @@ a {
 
 #playlist_container p {
     text-align: left;
+    vertical-align: middle;
     width: 250px;
 }
 
@@ -70,15 +72,27 @@ a {
     margin: 1px;
     text-align: center;
     vertical-align: middle;
+    font-size: 12px;
 }
 
 #play_control input {
     height: 30px;
     width: 50px;
+    font-size: 12px;
+}
+
+#loop {
+    height: 12px;
+    width: 12px;
+    margin-left: 20px;
+}
+
+#loop_text {
+    font-size: 12px;
 }
 
 #clear_button {
-    width: 216px;
+    width: 210px;
 }
 
 #playlist div {
@@ -172,5 +186,4 @@ a {
 #contents {
     overflow: auto;
     height: 100%;
-    border-left: 1px solid;
 }

@@ -111,6 +111,7 @@ function add_playlist(liver, name, artist, start, end, vid_id) {
         "<var id='" + song_url + "'>" + vid_id + "</var>" + "<var id='" + song_start + "'>" + start + "</var>" + "<var id='" + song_end + "'>" + end + "</var>" +
         "<br><input " + "id='" + del_id + "' type='button' value='Del' onclick='del_list(this.id)' />" + "<input " + "id='" + up_id + "' type='button' value='↑' onclick='up_list(this.id)' />" + "<input " + "id='" + down_id + "' type='button' value='↓' onclick='down_list(this.id)' />";
     document.getElementById("playlist").appendChild(song);
+    save_playlist();
 }
 
 //空白文字置換
@@ -168,6 +169,12 @@ function onPlayerStateChange(event) {
 
         //リスト最後尾分岐
         var elem_count = document.getElementById("playlist");
+        var elem_loop = document.getElementById("loop");
+        //ループ設定分岐
+        if (elem_count.childElementCount <= now_playing && elem_loop.checked) {
+            now_playing = 0;
+        }
+
         if (elem_count.childElementCount <= now_playing) {
             player.stopVideo();
             now_playing = 0;
@@ -183,6 +190,7 @@ function all_clear() {
     play_stop();
     var play_elem = document.getElementById("playlist");
     play_elem.innerHTML = "";
+    save_playlist();
 }
 
 //再生停止
@@ -197,6 +205,11 @@ function play_stop() {
 function play_next() {
     class_reset();
     var elem_count = document.getElementById("playlist");
+    var elem_loop = document.getElementById("loop");
+    //ループ設定分岐
+    if (elem_count.childElementCount <= now_playing && elem_loop.checked) {
+        now_playing = 0;
+    }
     if (now_playing < elem_count.childElementCount) {
         now_playing += 1;
         play_list();
@@ -208,6 +221,12 @@ function play_next() {
 //前曲
 function play_previous() {
     class_reset();
+    var elem_count = document.getElementById("playlist");
+    var elem_loop = document.getElementById("loop");
+    //ループ設定分岐
+    if (now_playing == 1 && elem_loop.checked) {
+        now_playing = elem_count.childElementCount + 1;
+    }
     if (now_playing > 1) {
         now_playing -= 1;
         play_list();
@@ -231,6 +250,7 @@ function del_list(id) {
     target.remove();
     refresh_id();
     refresh_playing();
+    save_playlist();
 }
 
 //リストを上へ
@@ -244,6 +264,7 @@ function up_list(id) {
     target.insertBefore(this_elem, above_elem);
     refresh_id();
     refresh_playing();
+    save_playlist();
 }
 
 //リストを下へ
@@ -262,6 +283,7 @@ function down_list(id) {
     }
     refresh_id();
     refresh_playing();
+    save_playlist();
 }
 
 //リスト操作後IDを再設定
@@ -272,9 +294,9 @@ function refresh_id() {
         var replace_head = "<span>&nbsp;" + (i + 1);
         var replace_text = "song" + (i + 1);
         var text = list[i].innerHTML;
-        var pre_refreshed_text = text.replace(/song[0-9]{1,}/g, replace_text);
-        var refreshed_text = pre_refreshed_text.replace(/<span>&nbsp;[0-9]{1,}/, replace_head);
-        list[i].innerHTML = refreshed_text;
+        text = text.replace(/song[0-9]{1,}/g, replace_text);
+        text = text.replace(/<span>&nbsp;[0-9]{1,}/, replace_head);
+        list[i].innerHTML = text;
         list[i].setAttribute("id", replace_text);
     }
 }
@@ -302,18 +324,44 @@ function change_theme(css_path, num) {
     changeStyle(css_path);
     localStorage.setItem('theme', css_path);
     localStorage.setItem('theme_num', num);
-    console.log(localStorage.getItem("theme"));
-    console.log(localStorage.getItem("theme_num"));
+}
+
+//Loop設定変更＆LocalStrageに設定を保存
+function change_loop() {
+    var elem = document.getElementById("loop");
+    if (elem.checked == true) {
+        localStorage.setItem('loop', 1);
+    } else {
+        localStorage.setItem('loop', 0);
+    }
+}
+
+//プレイリスト変更時LocalStrageに保存
+function save_playlist() {
+    var elem = document.getElementById("playlist");
+    var text = elem.innerHTML;
+    localStorage.setItem("playlist", text);
 }
 
 //初期設定（LocalStrage読み込み）
 function initialize() {
     //テーマ読み込み＆ラジオボタン設定
     changeStyle(localStorage.getItem("theme"));
-    if (localStorage.getItem('theme_num') == 2) {
-        var elem = document.getElementById('dark');
+    if (localStorage.getItem("theme_num") == 2) {
+        var elem = document.getElementById("dark");
+        elem.checked = true;
+    }
+
+    //Loop設定読み込み＆チェックボタン設定
+    if (localStorage.getItem("loop") == 1) {
+        var elem = document.getElementById("loop");
         elem.checked = true;
     }
 
     //プレイリスト読み込み
+    var elem = document.getElementById("playlist");
+    var text = localStorage.getItem("playlist");
+    text = text.replace(/ class="playing"/, "");
+    text = text.replace(/ class/, "");
+    elem.innerHTML = text;
 }
