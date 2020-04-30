@@ -225,6 +225,7 @@ function del_list(id) {
     var target = elem.parentElement;
     target.remove();
     refresh_id();
+    refresh_playing();
 }
 
 //リストを上へ
@@ -237,6 +238,7 @@ function up_list(id) {
     var above_elem = target_list[(num - 2)];
     target.insertBefore(this_elem, above_elem);
     refresh_id();
+    refresh_playing();
 }
 
 //リストを下へ
@@ -254,6 +256,7 @@ function down_list(id) {
         target.insertBefore(below_elem, this_elem);
     }
     refresh_id();
+    refresh_playing();
 }
 
 //リスト操作後IDを再設定
@@ -268,5 +271,23 @@ function refresh_id() {
         var refreshed_text = pre_refreshed_text.replace(/<span>&nbsp;[0-9]{1,}/, replace_head);
         list[i].innerHTML = refreshed_text;
         list[i].setAttribute("id", replace_text);
+    }
+}
+
+//再生中にプレイリストを操作した場合のグローバル変数修正
+function refresh_playing() {
+    var elem = document.getElementById("playlist");
+    var list = elem.getElementsByTagName("div");
+    var flag = false;
+    for (i = 0; i < list.length; i++) {
+        if (list[i].className == "playing") {
+            now_playing = i + 1;
+            playing_id = "song" + now_playing;
+            flag = true;
+        }
+    }
+    //再生中のリストが削除された場合の動作（再生停止）
+    if (flag == false) {
+        play_stop();
     }
 }
