@@ -1,10 +1,9 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html id="html">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="StyleSheet_light.css" type="text/css" id="lightmode" />
-    <link rel="stylesheet" href="#" type="text/css" id="darkmode" />
+    <link rel="stylesheet" href="StyleSheet_light.css" type="text/css" id="theme" />
     <link rel="icon" href="img/icon.png" />
     <title>35Player</title>
 
@@ -28,8 +27,8 @@
         </ul>
         <p><b>Theme</b></p>
         <div id="theme_select">
-            <input type="radio" name="theme" value="light" checked="checked" onchange="changeStyle('StyleSheet_light.css')" />Light
-            <input type="radio" name="theme" value="dark" onchange="changeStyle('StyleSheet_dark.css')" />Dark
+            <input type="radio" name="theme" id="light" checked="checked" onchange="change_theme('StyleSheet_light.css', 1)" />Light
+            <input type="radio" name="theme" id="dark" onchange="change_theme('StyleSheet_dark.css', 2)" />Dark
         </div>
         <hr>
         <div id="playlist_container">
@@ -40,9 +39,7 @@
                 <input type="button" value="Stop" onclick="play_stop()" />
                 <input type="button" value="Next" onclick="play_next()" />
             </div>
-            <div id="playlist">
-                <!--ここに選択した曲を追加-->
-            </div>
+            <div id="playlist"></div>
             <input type="button" id="clear_button" value="Clear Playlist" onclick="all_clear()" />
         </div>
     </div>
@@ -57,33 +54,33 @@
         <div id="song_list">
             <div id="member">
                 <a href="javascript:load_db('miko');"><img src="img/miko.jpg" /></a>
-                    <img class="disable" src="img/akiroze.jpg" />
-                    <img class="disable" src="img/aqua.jpg" />
-                    <img class="disable" src="img/ayame.jpg" />
-                    <img class="disable" src="img/azki.jpg" />
-                    <img class="disable" src="img/choco.jpg" />
-                    <img class="disable" src="img/coco.jpg" />
-                    <img class="disable" src="img/flare.jpg" />
-                    <img class="disable" src="img/fubuki.jpg" />
-                    <img class="disable" src="img/haato.jpg" />
-                    <img class="disable" src="img/kanata.jpg" />
-                    <img class="disable" src="img/korone.jpg" />
-                    <img class="disable" src="img/luna.jpg" />
-                    <img class="disable" src="img/marine.jpg" />
-                    <img class="disable" src="img/matsuri.jpg" />
-                    <img class="disable" src="img/mel.jpg" />
-                    <img class="disable" src="img/mio.jpg" />
-                    <img class="disable" src="img/noel.jpg" />
-                    <img class="disable" src="img/okayu.jpg" />
-                    <img class="disable" src="img/pekora.jpg" />
-                    <img class="disable" src="img/roboco.jpg" />
-                    <img class="disable" src="img/rushia.jpg" />
-                    <img class="disable" src="img/shion.jpg" />
-                    <img class="disable" src="img/sora.jpg" />
-                    <img class="disable" src="img/subaru.jpg" />
-                    <img class="disable" src="img/suisei.jpg" />
-                    <img class="disable" src="img/towa.jpg" />
-                    <img class="disable" src="img/watame.jpg" />
+                <img class="disable" src="img/akiroze.jpg" />
+                <img class="disable" src="img/aqua.jpg" />
+                <img class="disable" src="img/ayame.jpg" />
+                <img class="disable" src="img/azki.jpg" />
+                <img class="disable" src="img/choco.jpg" />
+                <img class="disable" src="img/coco.jpg" />
+                <img class="disable" src="img/flare.jpg" />
+                <img class="disable" src="img/fubuki.jpg" />
+                <img class="disable" src="img/haato.jpg" />
+                <img class="disable" src="img/kanata.jpg" />
+                <img class="disable" src="img/korone.jpg" />
+                <img class="disable" src="img/luna.jpg" />
+                <img class="disable" src="img/marine.jpg" />
+                <img class="disable" src="img/matsuri.jpg" />
+                <img class="disable" src="img/mel.jpg" />
+                <img class="disable" src="img/mio.jpg" />
+                <img class="disable" src="img/noel.jpg" />
+                <img class="disable" src="img/okayu.jpg" />
+                <img class="disable" src="img/pekora.jpg" />
+                <img class="disable" src="img/roboco.jpg" />
+                <img class="disable" src="img/rushia.jpg" />
+                <img class="disable" src="img/shion.jpg" />
+                <img class="disable" src="img/sora.jpg" />
+                <img class="disable" src="img/subaru.jpg" />
+                <img class="disable" src="img/suisei.jpg" />
+                <img class="disable" src="img/towa.jpg" />
+                <img class="disable" src="img/watame.jpg" />
             </div>
             <div id="toggle_button_block">
                 <input type="button" id="toggle_button" value="Hide Member List" onclick="toggle_memberlist()" />
@@ -93,5 +90,8 @@
             </div>
         </div>
     </div>
+    <script>
+        window.onload = initialize();
+    </script>
 </body>
 </html>

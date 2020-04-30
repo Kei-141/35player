@@ -2,7 +2,7 @@
 
 //テーマ切替
 function changeStyle(style) {
-    var linkstyle = document.getElementById("darkmode");
+    var linkstyle = document.getElementById("theme");
     linkstyle.href = style;
 }
 
@@ -124,6 +124,11 @@ var playing_id;
 
 //プレイリスト再生
 function play_list() {
+    var chk_elem = document.getElementById("playlist")
+    if (chk_elem.innerHTML == "") {
+        return false;
+    }
+
     now_playing = (now_playing == 0) ? 1 : now_playing;
     playing_id = "song" + now_playing;
     var video_url = playing_id + "_url";
@@ -290,4 +295,25 @@ function refresh_playing() {
     if (flag == false) {
         play_stop();
     }
+}
+
+//テーマ変更＆LocalStrageに設定を保存
+function change_theme(css_path, num) {
+    changeStyle(css_path);
+    localStorage.setItem('theme', css_path);
+    localStorage.setItem('theme_num', num);
+    console.log(localStorage.getItem("theme"));
+    console.log(localStorage.getItem("theme_num"));
+}
+
+//初期設定（LocalStrage読み込み）
+function initialize() {
+    //テーマ読み込み＆ラジオボタン設定
+    changeStyle(localStorage.getItem("theme"));
+    if (localStorage.getItem('theme_num') == 2) {
+        var elem = document.getElementById('dark');
+        elem.checked = true;
+    }
+
+    //プレイリスト読み込み
 }
