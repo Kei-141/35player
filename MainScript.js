@@ -361,7 +361,9 @@ function initialize() {
     //プレイリスト読み込み
     var elem = document.getElementById("playlist");
     var text = localStorage.getItem("playlist");
-    text = text.replace(/ class="playing"/, "");
-    text = text.replace(/ class/, "");
-    elem.innerHTML = text;
+    if (text != "") {
+        text = text.replace(/ class="playing"/, "");
+        text = text.replace(/ class/, "");
+        elem.innerHTML = text;
+    }
 }
