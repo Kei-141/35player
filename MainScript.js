@@ -346,16 +346,20 @@ function save_playlist() {
 //初期設定（LocalStrage読み込み）
 function initialize() {
     //テーマ読み込み＆ラジオボタン設定
-    changeStyle(localStorage.getItem("theme"));
-    if (localStorage.getItem("theme_num") == 2) {
-        var elem = document.getElementById("dark");
-        elem.checked = true;
+    if (localStorage.getItem("theme") != null) {
+        changeStyle(localStorage.getItem("theme"));
+        if (localStorage.getItem("theme_num") == 2) {
+            var elem = document.getElementById("dark");
+            elem.checked = true;
+        }
     }
 
     //Loop設定読み込み＆チェックボタン設定
-    if (localStorage.getItem("loop") == 1) {
-        var elem = document.getElementById("loop");
-        elem.checked = true;
+    if (localStorage.getItem("loop") != null) {
+        if (localStorage.getItem("loop") == 1) {
+            var elem = document.getElementById("loop");
+            elem.checked = true;
+        }
     }
 
     //プレイリスト読み込み
