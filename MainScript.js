@@ -1,12 +1,12 @@
-// All rights reserved by author.
+ï»¿// All rights reserved by author.
 
-//ƒe[ƒ}Ø‘Ö
+//ãƒ†ãƒ¼ãƒåˆ‡æ›¿
 function changeStyle(style) {
     var linkstyle = document.getElementById("darkmode");
     linkstyle.href = style;
 }
 
-//ƒRƒ“ƒeƒ“ƒcØ‘Ö
+//ã‚³ãƒ³ãƒ†ãƒ³ãƒ„åˆ‡æ›¿
 function toggle_contents(dom_id) {
     var childsAll = document.getElementById("contents").children;
     for (i = 0; i < childsAll.length; i++) {
@@ -20,7 +20,7 @@ function toggle_contents(dom_id) {
     }
 }
 
-//ƒƒ“ƒo[ƒŠƒXƒg•\¦Ø‘Ö
+//ãƒ¡ãƒ³ãƒãƒ¼ãƒªã‚¹ãƒˆè¡¨ç¤ºåˆ‡æ›¿
 function toggle_memberlist() {
     if (document.getElementById("member").style.display == "block") {
         document.getElementById("member").style.display = "none";
@@ -31,7 +31,7 @@ function toggle_memberlist() {
     }
 }
 
-//DB“Ç‚İ‚İ••\¦ŠÖ”ŒÄ‚Ño‚µ
+//DBèª­ã¿è¾¼ã¿ï¼†è¡¨ç¤ºé–¢æ•°å‘¼ã³å‡ºã—
 function load_db(member_name) {
     var ele = document.getElementById("selected_member");
     ele.innerHTML = "";
@@ -52,7 +52,7 @@ function load_db(member_name) {
         });
 }
 
-//‹ÈƒŠƒXƒg¶¬
+//æ›²ãƒªã‚¹ãƒˆç”Ÿæˆ
 function gen_songlist(json, div_id, member_name) {
     var title = document.createElement("div");
     title.innerHTML = json[0];
@@ -83,7 +83,7 @@ function gen_songlist(json, div_id, member_name) {
     }
 }
 
-//ƒvƒŒƒCƒŠƒXƒg“o˜^
+//ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆç™»éŒ²
 function add_playlist(liver, name, artist, start, end, vid_id) {
     var list_elem = document.getElementById("playlist");
     var count = list_elem.childElementCount;
@@ -99,26 +99,30 @@ function add_playlist(liver, name, artist, start, end, vid_id) {
     }
 
     var song_id = "song" + (count + 1);
+    var del_id = song_id + "_del";
+    var up_id = song_id + "_up";
+    var down_id = song_id + "_down";
     var song_url = song_id + "_url";
     var song_start = song_id + "_start";
     var song_end = song_id + "_end";
     var song = document.createElement("div");
     song.setAttribute("id", song_id);
-    song.innerHTML = "<img src='" + liver_thumbs_path + "' />&nbsp;" + "<span>" + (count + 1) + "&nbsp;:&nbsp;</span>" + name + "&nbsp;/&nbsp;" + artist + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix +
-        "<var id='" + song_url + "'>" + vid_id + "</var>" + "<var id='" + song_start + "'>" + start + "</var>" + "<var id='" + song_end + "'>" + end + "</var>";
+    song.innerHTML = "<img src='" + liver_thumbs_path + "' />" + "<span>&nbsp;" + (count + 1) + "&nbsp;:&nbsp;" + name + "&nbsp;/&nbsp;" + artist + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix + "</span >" +
+        "<var id='" + song_url + "'>" + vid_id + "</var>" + "<var id='" + song_start + "'>" + start + "</var>" + "<var id='" + song_end + "'>" + end + "</var>" +
+        "<br><input " + "id='" + del_id + "' type='button' value='Del' onclick='del_list(this.id)' />" + "<input " + "id='" + up_id + "' type='button' value='â†‘' onclick='up_list(this.id)' />" + "<input " + "id='" + down_id + "' type='button' value='â†“' onclick='down_list(this.id)' />";
     document.getElementById("playlist").appendChild(song);
 }
 
-//‹ó”’•¶š’uŠ·
+//ç©ºç™½æ–‡å­—ç½®æ›
 function replace_space(str) {
     return str.replace(/\s+/g, "&nbsp;");
 }
 
-//Ä¶’†‚Ì‹Èî•ñŠi”[
+//å†ç”Ÿä¸­ã®æ›²æƒ…å ±æ ¼ç´
 var now_playing = 0;
 var playing_id;
 
-//ƒvƒŒƒCƒŠƒXƒgÄ¶
+//ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆå†ç”Ÿ
 function play_list() {
     now_playing = (now_playing == 0) ? 1 : now_playing;
     playing_id = "song" + now_playing;
@@ -132,16 +136,17 @@ function play_list() {
         'videoId': document.getElementById(video_url).textContent,
         'startSeconds': document.getElementById(video_start).textContent,
         'endSeconds': document.getElementById(video_end).textContent,
+        'suggestedQuality': 'medium'
     })
 }
 
-//APIƒ[ƒh‚É©“®Às
+//APIãƒ­ãƒ¼ãƒ‰æ™‚ã«è‡ªå‹•å®Ÿè¡Œ
 var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '200',
         width: '480',
-        videoId: '0o3VrBLh8jI', //‚±‚Ì“®‰æID‚ÍŒö®ƒ`ƒƒƒ“ƒlƒ‹‚©‚ç“K“–‚Éİ’èi–¢İ’è‚¾‚Æ“®‚©‚È‚¢j
+        videoId: 'X9zw0QF12Kc', //ã‚µã‚¯ãƒ©ã‚«ã‚¼
         playerVars: { 'rel': 0 },
         events: {
             'onStateChange': onPlayerStateChange
@@ -149,14 +154,14 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-//Ä¶I—¹ÀsiŸ‚Ì‹Èj
+//å†ç”Ÿçµ‚äº†æ™‚å®Ÿè¡Œï¼ˆæ¬¡ã®æ›²ï¼‰
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) {
-        player.seekTo(0); //‘O‹È‚ÌI—¹ŠÔ‚ªŸ‹È‚ÌŠJnŠÔ‚ğ’´‚¦‚éê‡‘¦I—¹ˆ—‚ªÀs‚³‚ê‚é–â‘è‚É‘Îˆ
+        player.seekTo(0); //å‰æ›²ã®çµ‚äº†æ™‚é–“ãŒæ¬¡æ›²ã®é–‹å§‹æ™‚é–“ã‚’è¶…ãˆã‚‹å ´åˆå³çµ‚äº†å‡¦ç†ãŒå®Ÿè¡Œã•ã‚Œã‚‹å•é¡Œã«å¯¾å‡¦
         var play_elem = document.getElementById(playing_id);
         play_elem.setAttribute("class", "");
 
-        //ƒŠƒXƒgÅŒã”ö•ªŠò
+        //ãƒªã‚¹ãƒˆæœ€å¾Œå°¾åˆ†å²
         var elem_count = document.getElementById("playlist");
         if (elem_count.childElementCount <= now_playing) {
             player.stopVideo();
@@ -168,14 +173,14 @@ function onPlayerStateChange(event) {
     }
 }
 
-//ƒvƒŒƒCƒŠƒXƒgÁ‹
+//ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆæ¶ˆå»
 function all_clear() {
     player.stopVideo();
     var play_elem = document.getElementById("playlist");
     play_elem.innerHTML = "";
 }
 
-//Ä¶’â~
+//å†ç”Ÿåœæ­¢
 function play_stop() {
     player.stopVideo();
     class_reset();
@@ -183,7 +188,7 @@ function play_stop() {
     playing_id = "";
 }
 
-//Ÿ‹È
+//æ¬¡æ›²
 function play_next() {
     class_reset();
     var elem_count = document.getElementById("playlist");
@@ -195,7 +200,7 @@ function play_next() {
     }
 }
 
-//‘O‹È
+//å‰æ›²
 function play_previous() {
     class_reset();
     if (now_playing > 1) {
@@ -206,10 +211,62 @@ function play_previous() {
     }
 }
 
-//Ä¶’†‚ÌF•ÏXƒŠƒZƒbƒg
+//å†ç”Ÿä¸­ã®è‰²å¤‰æ›´ãƒªã‚»ãƒƒãƒˆ
 function class_reset() {
     if (now_playing != 0) {
         var play_elem = document.getElementById(playing_id);
         play_elem.setAttribute("class", "");
+    }
+}
+
+//ãƒªã‚¹ãƒˆå‰Šé™¤
+function del_list(id) {
+    var elem = document.getElementById(id);
+    var target = elem.parentElement;
+    target.remove();
+    refresh_id();
+}
+
+//ãƒªã‚¹ãƒˆã‚’ä¸Šã¸
+function up_list(id) {
+    var elem = document.getElementById(id);
+    var target = elem.parentElement.parentElement;
+    var target_list = target.getElementsByTagName("div");
+    var num = id.replace(/[^0-9]{1,}/g, '');
+    var this_elem = target_list[(num - 1)];
+    var above_elem = target_list[(num - 2)];
+    target.insertBefore(this_elem, above_elem);
+    refresh_id();
+}
+
+//ãƒªã‚¹ãƒˆã‚’ä¸‹ã¸
+function down_list(id) {
+    var elem = document.getElementById(id);
+    var target = elem.parentElement.parentElement;
+    var target_list = target.getElementsByTagName("div");
+    var num = id.replace(/[^0-9]{1,}/g, '');
+    var this_elem = target_list[(num - 1)];
+    var below_elem = target_list[num];
+    var first_elem = target_list[0];
+    if (target_list.length == num) {
+        target.insertBefore(this_elem, first_elem);
+    } else {
+        target.insertBefore(below_elem, this_elem);
+    }
+    refresh_id();
+}
+
+//ãƒªã‚¹ãƒˆæ“ä½œå¾ŒIDã‚’å†è¨­å®š
+function refresh_id() {
+    var elem = document.getElementById("playlist");
+    var list = elem.getElementsByTagName("div");
+    for (i = 0; i < list.length; i++) {
+        var replace_head = "<span>&nbsp;" + (i + 1);
+        var replace_text = "song" + (i + 1);
+        var text = list[i].innerHTML;
+        var pre_refreshed_text = text.replace(/song[0-9]{1,}/g, replace_text);
+        var refreshed_text = pre_refreshed_text.replace(/<span>&nbsp;[0-9]{1,}/, replace_head);
+        list[i].innerHTML = refreshed_text;
+        list[i].setAttribute("id", replace_text);
     }
 }

@@ -74,11 +74,11 @@ a {
 
 #play_control input {
     height: 30px;
-    width: 55px;
+    width: 50px;
 }
 
 #clear_button {
-    width: 236px;
+    width: 216px;
 }
 
 #playlist div {
@@ -102,6 +102,11 @@ a {
 #playlist var {
     display: none;
 }
+
+#playlist input {
+    font-size: 10px;
+}
+
 
 .playing {
     background-color: aquamarine;
