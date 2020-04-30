@@ -175,7 +175,7 @@ function onPlayerStateChange(event) {
 
 //プレイリスト消去
 function all_clear() {
-    player.stopVideo();
+    play_stop();
     var play_elem = document.getElementById("playlist");
     play_elem.innerHTML = "";
 }
