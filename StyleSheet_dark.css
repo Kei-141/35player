@@ -140,20 +140,25 @@ a {
 
 #home {
     display: block;
-    height: 100%;
 }
 
 #song_list {
     display: none;
 }
 
+#selected_member {
+    vertical-align: top;
+    text-align: center;
+}
+
 .song_list_child {
     height: auto;
-    width: auto;
+    width: 98%;
     border: 1px solid;
-    margin: 3px;
+    margin: 2px;
     padding: 3px;
     display: inline-block;
+    text-align: left;
 }
 
 .song_list_child img{
@@ -163,7 +168,7 @@ a {
 }
 
 .song_list_child div{
-    width: 500px;
+    width: 780px;
     font-size: 12px;
 }
 

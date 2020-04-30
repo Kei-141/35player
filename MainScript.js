@@ -141,8 +141,7 @@ function play_list() {
     player.loadVideoById({
         'videoId': document.getElementById(video_url).textContent,
         'startSeconds': document.getElementById(video_start).textContent,
-        'endSeconds': document.getElementById(video_end).textContent,
-        'suggestedQuality': 'medium'
+        'endSeconds': document.getElementById(video_end).textContent
     })
 }
 
