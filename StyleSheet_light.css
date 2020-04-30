@@ -139,7 +139,7 @@ a {
 
 #home {
     display: block;
-    height: 1200px;
+    height: 100%;
 }
 
 #song_list {
