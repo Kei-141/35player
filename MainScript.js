@@ -150,7 +150,7 @@ var player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '200',
-        width: '480',
+        width: '356',
         videoId: 'X9zw0QF12Kc', //サクラカゼ
         playerVars: { 'rel': 0 },
         events: {
