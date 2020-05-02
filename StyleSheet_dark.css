@@ -129,7 +129,6 @@ a {
 #viewer {
     overflow: visible;
     height: 200px;
-    word-wrap: normal;
     border-bottom: 1px solid;
     position: sticky;
     position: -webkit-sticky;
