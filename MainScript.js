@@ -38,7 +38,7 @@ function load_db(member_name) {
     ele.innerHTML = "";
     //デバッグ用URL
     //var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
-    var url = "http://kei141.html.xdomain.jp/db/" + member_name + ".json"
+    var url = "http://35p.fun/db/" + member_name + ".json"
     fetch(url, {
         mode: 'cors'
     }) .then(function (response) {

@@ -44,8 +44,9 @@ html {
 
             #menu ul{}
 
-                #menu li {
+                #menu li:hover {
                     cursor: pointer;
+                    background-color: #94e4da;
                 }
 
             #theme_select {
@@ -147,6 +148,24 @@ html {
             #home {
                 display: block;
             }
+                
+                #home h3{
+                    margin: 5px;
+                }
+
+                #home h4 {
+                    margin: 5px;
+                }
+
+                #home img{
+                    vertical-align: text-bottom;
+                }
+
+                #link_img {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 12px;
+                }
 
             #song_list {
                 display: none;
