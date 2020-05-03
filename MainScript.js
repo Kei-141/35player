@@ -22,12 +22,13 @@ function toggle_contents(dom_id) {
 
 //メンバーリスト表示切替
 function toggle_memberlist() {
-    if (document.getElementById("member").style.display == "block") {
-        document.getElementById("member").style.display = "none";
-        document.getElementById("toggle_button").value = "Show Member List";
-    } else {
+    if (document.getElementById("member").style.display == "none") {
         document.getElementById("member").style.display = "block";
         document.getElementById("toggle_button").value = "Hide Member List";
+    } else {
+        document.getElementById("member").style.display = "none";
+        document.getElementById("toggle_button").value = "Show Member List";
+        
     }
 }
 
@@ -35,9 +36,12 @@ function toggle_memberlist() {
 function load_db(member_name) {
     var ele = document.getElementById("selected_member");
     ele.innerHTML = "";
-    var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
-    fetch(url)
-        .then(function (response) {
+    //デバッグ用URL
+    //var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
+    var url = "http://kei141.html.xdomain.jp/db/" + member_name + ".json"
+    fetch(url, {
+        mode: 'cors'
+    }) .then(function (response) {
             return response.json();
         })
         .then(function (json) {
