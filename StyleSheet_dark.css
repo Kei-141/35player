@@ -167,6 +167,11 @@ html {
                     border-radius: 12px;
                 }
 
+                #procedure {
+                    max-width: 100%;
+                    height: auto;
+                }
+
             #song_list {
                 display: none;
             }
