@@ -9,6 +9,7 @@ function changeStyle(style) {
 //コンテンツ切替
 function toggle_contents(dom_id) {
     var childsAll = document.getElementById("contents").children;
+    document.getElementById("contents").scrollTop = 0; //Edgeの不具合に対処
     for (i = 0; i < childsAll.length; i++) {
         if (childsAll[i].id == dom_id) {
             document.getElementById(childsAll[i].id).style.display = "block";
@@ -37,8 +38,8 @@ function load_db(member_name) {
     var ele = document.getElementById("selected_member");
     ele.innerHTML = "";
     //デバッグ用URL
-    //var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
-    var url = "http://35p.fun/db/" + member_name + ".json"
+    var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
+    //var url = "http://35p.fun/db/" + member_name + ".json"
     fetch(url, {
         mode: 'cors'
     }) .then(function (response) {
