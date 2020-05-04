@@ -38,8 +38,8 @@ function load_db(member_name) {
     var ele = document.getElementById("selected_member");
     ele.innerHTML = "";
     //デバッグ用URL
-    var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
-    //var url = "http://35p.fun/db/" + member_name + ".json"
+    //var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
+    var url = "http://35p.fun/db/" + member_name + ".json"
     fetch(url, {
         mode: 'cors'
     }) .then(function (response) {
@@ -157,7 +157,10 @@ function onYouTubeIframeAPIReady() {
         height: '200',
         width: '356',
         videoId: 'X9zw0QF12Kc', //サクラカゼ
-        playerVars: { 'rel': 0 },
+        playerVars: {
+            'rel': 0,
+            'origin': '*'
+        },
         events: {
             'onStateChange': onPlayerStateChange
         }
