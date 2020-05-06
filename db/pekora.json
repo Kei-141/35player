@@ -1,4 +1,92 @@
-[
+﻿[
+  [
+    "【歌枠】ライブ直前！！たくさん歌うぺこ！【ホロライブ/兎田ぺこら】",
+    "PegNwr1GN2k",
+    {
+      "song_name": "Shiny Smily Story",
+      "artist_name": "hololive IDOL PROJECT",
+      "start": "606",
+      "end": "702"
+    },
+    {
+      "song_name": "星間飛行",
+      "artist_name": "ランカ・リー(CV:中島愛)",
+      "start": "941",
+      "end": "1026"
+    },
+    {
+      "song_name": "桃色片想い",
+      "artist_name": "松浦亜弥",
+      "start": "1096",
+      "end": "1203"
+    },
+    {
+      "song_name": "MUGO・ん…色っぽい",
+      "artist_name": "工藤静香",
+      "start": "1302",
+      "end": "1391"
+    },
+    {
+      "song_name": "丸の内サディスティック",
+      "artist_name": "椎名林檎",
+      "start": "1493",
+      "end": "1557"
+    },
+    {
+      "song_name": "ドキドキラビリンス",
+      "artist_name": "小倉唯",
+      "start": "1622",
+      "end": "1872"
+    },
+    {
+      "song_name": "ルミナス",
+      "artist_name": "ClariS",
+      "start": "2000",
+      "end": "2089"
+    },
+    {
+      "song_name": "ヒトリゴト",
+      "artist_name": "ClariS",
+      "start": "2156",
+      "end": "2247"
+    },
+    {
+      "song_name": "恋愛サーキュレーション",
+      "artist_name": "千石撫子(CV:花澤香菜)",
+      "start": "2348",
+      "end": "2438"
+    },
+    {
+      "song_name": "紅蓮華",
+      "artist_name": "Lisa",
+      "start": "2554",
+      "end": "2647"
+    },
+    {
+      "song_name": "ハッピー☆マテリアル",
+      "artist_name": "麻帆良学園中等部2-A",
+      "start": "2730",
+      "end": "2822"
+    },
+    {
+      "song_name": "ワールドイズマイン",
+      "artist_name": "ryo",
+      "start": "3366",
+      "end": "3469"
+    },
+    {
+      "song_name": "ロミオとシンデレラ",
+      "artist_name": "doriko",
+      "start": "3502",
+      "end": "3602"
+    },
+    {
+      "song_name": "fancy baby doll(スパチャ読み上げVer)",
+      "artist_name": "田村ゆかり",
+      "start": "3674",
+      "end": "4204"
+    }
+  ],
   [
     "【歌枠】アイドルらしくみんなを癒すぺこっ【ホロライブ/兎田ぺこら】",
     "hHs8nwvh0bc",
@@ -175,7 +263,7 @@
     {
       "song_name": "高嶺の花子さん",
       "artist_name": "back number",
-      "start": "1313‬",
+      "start": "1313",
       "end": "1582"
     },
     {
@@ -227,7 +315,7 @@
     {
       "song_name": "Shiny Smily Story",
       "artist_name": "hololive IDOL PROJECT",
-      "start": "1571‬",
+      "start": "1571",
       "end": "1669"
     },
     {
@@ -273,7 +361,7 @@
     {
       "song_name": "ハッピー☆マテリアル",
       "artist_name": "麻帆良学園中等部2-A",
-      "start": "997‬",
+      "start": "997",
       "end": "1217"
     },
     {
@@ -325,7 +413,7 @@
     {
       "song_name": "みくみくにしてあげる♪",
       "artist_name": "ika",
-      "start": "1616‬",
+      "start": "1616",
       "end": "1715"
     },
     {

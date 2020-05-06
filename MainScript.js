@@ -64,7 +64,7 @@ function gen_songlist(json, div_id, member_name) {
     document.getElementById(div_id).appendChild(title);
 
     var thumbs = document.createElement("img");
-    var thumbs_url = "https://i.ytimg.com/vi/" + json[1] + "/hq720.jpg";
+    var thumbs_url = "https://i.ytimg.com/vi/" + json[1] + "/hqdefault.jpg";
     thumbs.setAttribute("src", thumbs_url);
     document.getElementById(div_id).appendChild(thumbs);
 
@@ -73,7 +73,9 @@ function gen_songlist(json, div_id, member_name) {
     for (j = 2; j < json.length; j++) {
         var list = document.createElement("div");
 
-        var time_min = Math.floor((json[j].end - json[j].start) / 60);
+        var num1 = Number(json[j].end);
+        var num2 = Number(json[j].start);
+        var time_min = Math.floor((num1 - num2) / 60);
         var time_sec = (json[j].end - json[j].start) % 60;
         if (time_sec < 10) {
             var time_sec_fix = "0" + time_sec;
