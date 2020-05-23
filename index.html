@@ -3,41 +3,28 @@
 <html id="html">
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="StyleSheet_light.css" type="text/css" id="theme" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="icon" href="img/icon.png" />
     <title>35Player</title>
-
-    <!--Load IFrame Player API-->
-    <script>
-        var tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName("script")[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    </script>
-
-    <script src="MainScript.js" charset="utf-8"></script>
 </head>
 <body class="theme">
     <div id="menu" class="theme">
         <img id="logo" src="img/logo.png" />
-        <p><b>Menu</b></p>
-        <ul typeof="disk" class="theme">
-            <a class="theme" href="javascript:toggle_contents('home');"><li> Home</li></a>
-            <a class="theme" href="javascript:toggle_contents('song_list');"><li> Song List</li></a>
-        </ul>
-        <p><b>Theme</b></p>
-        <div id="theme_select">
-            <input type="radio" name="theme" id="light" checked="checked" onchange="change_theme('StyleSheet_light.css', 1)" />Light
-            <input type="radio" name="theme" id="dark" onchange="change_theme('StyleSheet_dark.css', 2)" />Dark
-        </div>
-        <hr>
+        <div id="menu_list">
+            <div class="menu_list" id="home_button"><img class="menu_img" id="home_img" src="img/home_light.png" /><span class="menu_text"><b>ホーム</b></span></div>
+            <div class="menu_list" id="song_list_button"><img class="menu_img" id="song_list_img" src="img/song_list_light.png" /><span class="menu_text"><b>曲リスト</b></span></div>
+            <div class="menu_list" id="search_button"><img class="menu_img" id="search_img" src="img/search_light.png" /><span class="menu_text"><b>検索（開発中）</b></span></div>
+            <div class="menu_list" id="viewer_button"><img class="menu_img" id="viewer_img" src="img/player_light.png" /><span class="menu_text"><b>プレイヤー表示切替</b></span></div>
+            <div class="menu_list" id="settings_button"><img class="menu_img" id="settings_img" src="img/settings_light.png" /><span class="menu_text"><b>設定</b></span></div>
+        </div><hr>
         <div id="playlist_container">
-            <p><b>Playlist</b><br><input type="checkbox" id="loop" onchange="change_loop()" /><label id="loop_text">Loop</label></p>
+            <div id="play_control_sub"><input type="checkbox" id="loop" onchange="change_loop()" /></div>
             <div id="play_control">
-                <input type="button" value="Prev" onclick="play_previous()" />
-                <input type="button" value="Play" onclick="play_list()" />
-                <input type="button" value="Stop" onclick="play_stop()" />
-                <input type="button" value="Next" onclick="play_next()" />
+                <a href="javascript:repeat_toggle();"><img class="control_img" id="repeat_img" src="img/repeat_light.png" /></a>
+                <a href="javascript:play_previous();"><img class="control_img" id="prev_img" src="img/prev_light.png" /></a>
+                <a href="javascript:play_list();"><img class="control_img" id="play_img" src="img/play_light.png" /></a>
+                <a href="javascript:play_stop();"><img class="control_img" id="stop_img" src="img/stop_light.png" /></a>
+                <a href="javascript:play_next();"><img class="control_img" id="next_img" src="img/next_light.png" /></a>
             </div>
             <div id="playlist"></div>
             <input type="button" id="clear_button" value="Clear Playlist" onclick="all_clear()" />
@@ -48,25 +35,29 @@
             <!--YouTube Player-->
             <div id="player"></div>
         </div>
-        <!--Home Contents-->
         <div id="home">
             <h3>更新履歴</h3>
             ・5/4：公開<br>
             ・5/5：「兎田ぺこら」データ追加（データ提供者：Tsuchioさん<a href="https://twitter.com/Tsuchio3" target="_blank"><img id="link_img" src="img/Twitter_Logo_WhiteOnBlue.png"></a>）<br>
-            ・5/6：「戌神ころね」データ追加（データ提供者：りがるさん<a href="https://twitter.com/Ri_E_Ra" target="_blank"><img id="link_img" src="img/Twitter_Logo_WhiteOnBlue.png"></a>）
+            ・5/6：「戌神ころね」データ追加（データ提供者：りがるさん<a href="https://twitter.com/Ri_E_Ra" target="_blank"><img id="link_img" src="img/Twitter_Logo_WhiteOnBlue.png"></a>）<br>
+            ・5/6：「角巻わため」データ追加（データ提供者：メイドさん<a href="https://twitter.com/kashiwa_nhh" target="_blank"><img id="link_img" src="img/Twitter_Logo_WhiteOnBlue.png"></a>）<br>
+            ・5/8：「星街すいせい」データ追加（データ提供者：メイドさん<a href="https://twitter.com/kashiwa_nhh" target="_blank"><img id="link_img" src="img/Twitter_Logo_WhiteOnBlue.png"></a>）<br>
+            ・5/8：バックグラウンド再生のTipsについて、設定が必要な旨を追記しました。<br>
+            ・5/14：「兎田ぺこら」データ追加（データ提供者：Tsuchioさん<a href="https://twitter.com/Tsuchio3" target="_blank"><img id="link_img" src="img/Twitter_Logo_WhiteOnBlue.png"></a>）<br>
+            ・5/23：「兎田ぺこら」データ追加（データ提供者：衿宮 葵さん<a href="https://twitter.com/aoi_erimiya" target="_blank"><img id="link_img" src="img/Twitter_Logo_WhiteOnBlue.png"></a>）<br>
+            ・5/23：UIをアップデート（反映されない場合は一度キャッシュをクリアして下さい。）、SSL接続対応
             <hr>
             <h3>使い方</h3>
-            １：左上MenuからSong Listをクリックする。(Homeはこのページ)<br>
-            ２：一覧からメンバーの画像をクリックする。（メンバー一覧は下部のボタンで表示切替可能）<br>
-            ３：アーカイブ毎の曲データ一覧が表示されるので、プレイリストに追加したい曲のAddボタンをクリックする。<br>
-            ４：左カラムのPlaylist内にあるPlayボタンをクリックすると再生が開始される。<br>
+            １：左上メニューから曲リストをクリックする。(ホームはこのページ)<br>
+            ２：一覧からメンバーをクリックする。<br>
+            ３：アーカイブ毎の曲データ一覧が表示されるので、プレイリストに追加したい曲の＋ボタンをクリックする。<br>
+            ４：左カラム下部のプレイリストに曲が追加されるので、Playボタンをクリックすると再生が開始される。<br>
             <br>
             <b>Tips</b><br>
             ・スマホでバックグラウンド再生するには？<br>
-            １：一度プレイリストの再生を開始した後ホーム画面に戻る。<br>
-            ２：曲の再生が止まるので、androidの場合は通知パネル、iOSの場合はコントロールセンターを開き、再生ボタンを押す。<br>
-            ３：曲の再生が再開される。<br>
+            <a href="https://appllio.com/youtube-background-play-bgm-iphone-android" target="_blank"><u>こちらの記事</u></a>を参考にして下さい。<br>
             ※仕様上、ブラウザ以外からの操作は一時停止及び再生のみ可能です。パネルやBluetooth機器などから曲送り又は曲戻し操作をした場合次の曲が再生されませんのでご注意下さい。<br>
+            また、端末スリープ時にもバックグラウンド再生する場合には電源などの設定からお使いのブラウザをバックグラウンドでも動作するよう設定が必要です。<br>　（端末によっては設定不可の場合もあります。）<br>
             ・曲の検索方法<br>
             Ctrl + F で表示されるページ内検索をご利用下さい。
             <hr>
@@ -95,46 +86,61 @@
             </ul>
         </div>
         <div id="song_list">
-            <div id="member">
-                <a href="javascript:load_db('miko');"><img src="img/miko.jpg" /></a>
-                <a href="javascript:load_db('pekora');"><img src="img/pekora.jpg" /></a>
-                <a href="javascript:load_db('korone');"><img src="img/korone.jpg" /></a>
-                <img class="disable" src="img/akiroze.jpg" />
-                <img class="disable" src="img/aqua.jpg" />
-                <img class="disable" src="img/ayame.jpg" />
-                <img class="disable" src="img/azki.jpg" />
-                <img class="disable" src="img/choco.jpg" />
-                <img class="disable" src="img/coco.jpg" />
-                <img class="disable" src="img/flare.jpg" />
-                <img class="disable" src="img/fubuki.jpg" />
-                <img class="disable" src="img/haato.jpg" />
-                <img class="disable" src="img/kanata.jpg" />
-                <img class="disable" src="img/luna.jpg" />
-                <img class="disable" src="img/marine.jpg" />
-                <img class="disable" src="img/matsuri.jpg" />
-                <img class="disable" src="img/mel.jpg" />
-                <img class="disable" src="img/mio.jpg" />
-                <img class="disable" src="img/noel.jpg" />
-                <img class="disable" src="img/okayu.jpg" />
-                <img class="disable" src="img/roboco.jpg" />
-                <img class="disable" src="img/rushia.jpg" />
-                <img class="disable" src="img/shion.jpg" />
-                <img class="disable" src="img/sora.jpg" />
-                <img class="disable" src="img/subaru.jpg" />
-                <img class="disable" src="img/suisei.jpg" />
-                <img class="disable" src="img/towa.jpg" />
-                <img class="disable" src="img/watame.jpg" />
-            </div>
-            <div id="toggle_button_block">
-                <input type="button" id="toggle_button" value="Hide Member List" onclick="toggle_memberlist()" />
+            <div id="member" class="theme">
+                <div class="member_list" id="miko"><img src="img/miko.jpg" />　さくらみこ</div>
+                <div class="member_list" id="pekora"><img src="img/pekora.jpg" />　兎田ぺこら</div>
+                <div class="member_list" id="korone"><img src="img/korone.jpg" />　戌神ころね</div>
+                <div class="member_list" id="suisei"><img src="img/suisei.jpg" />　星街すいせい</div>
+                <div class="member_list" id="watame"><img src="img/watame.jpg" />　角巻わため</div>
+                <div class="member_list disabled" id="akiroze"><img src="img/akiroze.jpg" />　ｱｷ･ﾛｰｾﾞﾝﾀｰﾙ</div>
+                <div class="member_list disabled" id="aqua"><img src="img/aqua.jpg" />　湊あくあ</div>
+                <div class="member_list disabled" id="ayame"><img src="img/ayame.jpg" />　百鬼あやめ</div>
+                <div class="member_list disabled" id="azki"><img src="img/azki.jpg" />　AZKi</div>
+                <div class="member_list disabled" id="choco"><img src="img/choco.jpg" />　癒月ちょこ</div>
+                <div class="member_list disabled" id="coco"><img src="img/coco.jpg" />　桐生ココ</div>
+                <div class="member_list disabled" id="flare"><img src="img/flare.jpg" />　不知火フレア</div>
+                <div class="member_list disabled" id="fubuki"><img src="img/fubuki.jpg" />　白上フブキ</div>
+                <div class="member_list disabled" id="haato"><img src="img/haato.jpg" />　赤井はあと</div>
+                <div class="member_list disabled" id="kanata"><img src="img/kanata.jpg" />　天音かなた</div>
+                <div class="member_list disabled" id="luna"><img src="img/luna.jpg" />　姫森ルーナ</div>
+                <div class="member_list disabled" id="marine"><img src="img/marine.jpg" />　宝鐘マリン</div>
+                <div class="member_list disabled" id="matsuri"><img src="img/matsuri.jpg" />　夏色まつり</div>
+                <div class="member_list disabled" id="mel"><img src="img/mel.jpg" />　夜空メル</div>
+                <div class="member_list disabled" id="mio"><img src="img/mio.jpg" />　大神ミオ</div>
+                <div class="member_list disabled" id="noel"><img src="img/noel.jpg" />　白銀ノエル</div>
+                <div class="member_list disabled" id="okayu"><img src="img/okayu.jpg" />　猫又おかゆ</div>
+                <div class="member_list disabled" id="roboco"><img src="img/roboco.jpg" />　ロボ子さん</div>
+                <div class="member_list disabled" id="rushia"><img src="img/rushia.jpg" />　潤羽るしあ</div>
+                <div class="member_list disabled" id="shion"><img src="img/shion.jpg" />　紫咲シオン</div>
+                <div class="member_list disabled" id="sora"><img src="img/sora.jpg" />　ときのそら</div>
+                <div class="member_list disabled" id="subaru"><img src="img/subaru.jpg" />　大空スバル</div>
+                <div class="member_list disabled" id="towa"><img src="img/towa.jpg" />　常闇トワ</div>
             </div>
             <div id="selected_member">
                 <!--ここにDBから読みだした動画毎の曲リストを追加-->
             </div>
         </div>
+        <dev id="search">
+            <div id="search_header">　<b>検索</b></div>
+        </dev>
+        <dev id="settings">
+            <div id="settings_header">　<b>設定</b></div>
+            <h4>　　テーマ</h4>
+            <div id="theme_select">
+                <input type="radio" name="theme" id="light" checked="checked" onchange="change_theme(1)" />Light
+                <input type="radio" name="theme" id="dark" onchange="change_theme(2)" />Dark
+            </div>
+        </dev>
     </div>
+    <script src="js/jquery-3.5.1.min.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+    <!--Load IFrame Player API-->
     <script>
-        window.onload = initialize();
+        var tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
+    <script>window.onload = initialize();</script>
 </body>
 </html>

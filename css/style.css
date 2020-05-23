@@ -1,0 +1,373 @@
+﻿/*テーマ設定*/
+.theme {
+    color: #000000;
+    background-color: #fafafa;
+    border-color: #000000;
+}
+
+/*スクロールバー*/
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0 0 2px #777;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #898989;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Yu Gothic';
+}
+
+    body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    p {
+        font-size: 120%;
+        margin-bottom: 2px;
+    }
+
+    ul {
+        margin-top: 0px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+        #menu {
+            height: 100%;
+            width: 250px;
+            float: left;
+            overflow: visible;
+            border-right: 1px solid;
+        }
+
+            #logo {
+                width: 250px;
+            }
+
+            .menu_list{
+                height: 48px;
+                width: 250px;
+                text-align: left;
+                vertical-align: middle;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+            }
+
+            .menu_img{
+                height: 24px;
+                width: 24px;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding-bottom: 5px;
+            }
+
+            .menu_list:hover{
+                cursor: pointer;
+                background-color: rgba(79, 147, 124, 0.75);
+            }
+
+            .menu_list:active {
+                background-color: mediumaquamarine;
+            }
+
+            #playlist_container {
+                text-align: center;
+            }
+
+                #playlist_container p {
+                    text-align: left;
+                    vertical-align: middle;
+                    margin-top: 0px;
+                    width: 250px;
+                }
+
+                    #loop {
+                        height: 12px;
+                        width: 12px;
+                        margin-left: 20px;
+                    }
+
+                    #loop_text {
+                        font-size: 12px;
+                    }
+
+                #play_control_sub{
+                    text-align: left;
+                    display: none;
+                }
+
+                .control_img {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .control_img:hover {
+                    border-radius: 16px;
+                    background-color: mediumaquamarine;
+                }
+
+                .control_img:active {
+                    border-radius: 10px;
+                    background-color: aquamarine;
+                }
+
+                #playlist{
+                    text-align: center;
+                    max-height: calc(100vh - 432px);
+                    overflow: auto;
+                }
+
+                    #playlist div {
+                        width: 230px;
+                        font-size: 12px;
+                        border: 1px solid;
+                        margin-bottom: 2px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        overflow: auto;
+                        white-space: nowrap;
+                        text-align: left;
+                        vertical-align: middle;
+                        position: relative;
+                    }
+
+                    .liver_img {
+                        width: 16px;
+                        height: 16px;
+                        margin-top: 2px;
+                        margin-left: 2px;
+                        border-radius: 8px;
+                        border: 1px solid;
+                        position: absolute;
+                    }
+
+                    .list_control_img {
+                        width: 16px;
+                        height: 16px;
+                        vertical-align: text-bottom;
+                        margin-left: 3px;
+                    }
+
+                    .list_control_img:hover {
+                        border-radius: 10px;
+                        background-color: mediumaquamarine;
+                    }
+
+                    .list_control_img:active {
+                        border-radius: 14px;
+                        background-color: aquamarine;
+                    }
+
+                    #playlist span{
+                        display: inline-block;
+                        margin-left: 20px;
+                        padding-top: 2px;
+                    }
+                
+                    #playlist var {
+                        display: none;
+
+                    }
+                
+                    #playlist input {
+                        font-size: 10px;
+                    }
+                
+                    .playing {
+                        background-color: aquamarine;
+                        color: #000000;
+                    }
+
+                #clear_button {
+                    width: 210px;
+                }
+
+        #contents {
+            overflow: hidden;
+            height: 100%;
+            width: calc(100vw - 251px);
+        }
+
+            #viewer {
+                overflow: visible;
+                height: 200px;
+                border-bottom: 1px solid;
+                text-align: center;
+                position: sticky;
+                position: -webkit-sticky;
+                top: 0;
+                z-index: 3;
+            }
+
+            #home {
+                display: block;
+                overflow: auto;
+                height: 100%;
+            }
+                
+                #home h3{
+                    margin: 5px;
+                }
+
+                #home h4 {
+                    margin: 5px;
+                }
+
+                #home img{
+                    vertical-align: text-bottom;
+                }
+
+                #link_img {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 12px;
+                }
+
+                #procedure{
+                    max-width: 100%;
+                    height: auto;
+                }
+
+            #song_list {
+                display: none;
+                height: 100%;
+                overflow: hidden;
+            }
+
+                #member {
+                    overflow: auto;
+                    display: inline-block;
+                    border-right: 1px solid;
+                    width: 170px;
+                    height: 100%;
+                }
+
+                    #member .member_list {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 2px;
+                        margin-bottom: 2px;
+                    }
+
+                    #member .member_list:hover{
+                        cursor: pointer;
+                        background-color: rgba(79, 147, 124, 0.75);
+                    }
+
+                    #member .member_list:active {
+                        background-color: mediumaquamarine;
+                    }
+
+                    #member .disabled{
+                        opacity: 0.1;
+                    }
+
+                    #member img {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 15px;
+                        border: 1px solid #000000;
+                        margin-left: 5px;
+                    }
+
+                    #member .disable {
+                        display: none;
+                    }
+
+                #selected_member {
+                    display: inline-block;
+                    overflow: auto;
+                    height: 100%;
+                    width: calc(100% - 176px);
+                    vertical-align: top;
+                    text-align: center;
+                }
+
+                    .song_list_child {
+                        height: auto;
+                        width: 98%;
+                        border: 1px solid;
+                        margin: 2px;
+                        padding: 3px;
+                        display: inline-block;
+                        text-align: left;
+                    }
+
+                    .thumbs {
+                        width: 250px;
+                        margin: 3px;
+                        border: 1px solid;
+                    }
+
+                    .add_button {
+                        width: 16px;
+                        height: 16px;
+                        vertical-align: text-bottom;
+                    }
+
+                    .add_button:hover {
+                        border-radius: 10px;
+                        background-color: mediumaquamarine;
+                    }
+
+                    .add_button:active {
+                        border-radius: 14px;
+                        background-color: aquamarine;
+                    }
+
+                    .song_list_child div {
+                        font-size: 12px;
+                    }
+
+            #search {
+                display: block;
+                overflow: auto;
+                height: 100%;
+            }
+
+                #search_header{
+                    width: 100%;
+                    border-bottom: solid 1px;
+                    font-size: 24px;
+                }
+
+            #settings {
+                display: block;
+                overflow: auto;
+                height: 100%;
+            }
+            
+                #settings_header{
+                    width: 100%;
+                    border-bottom: solid 1px;
+                    font-size: 24px;
+                }
+
+                #settings h4{
+                    margin-top: 10px;
+                    margin-bottom: 2px;
+                }
+
+                    #theme_select {
+                        text-align: left;
+                        margin-left: 30px;
+                    }

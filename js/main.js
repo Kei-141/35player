@@ -1,15 +1,60 @@
 ﻿// All rights reserved by author.
 
 //テーマ切替
-function changeStyle(style) {
-    var linkstyle = document.getElementById("theme");
-    linkstyle.href = style;
+function changeStyle(state) {
+    if (state == 2) {
+        $('.theme').css({ 'color': '#ffffff', 'background-color': '#282828', 'border-color': '#ffffff' });
+    } else {
+        $('.theme').css({ 'color': '#000000', 'background-color': '#fafafa', 'border-color': '#000000' });
+    }
+    menu_img_toggle(state);
+    repeat_button_img_toggle();
+    playlist_img_toggle();
+}
+
+//画像テーマ切替
+function menu_img_toggle(state) {
+    var html_menu = $('#menu_list').html();
+    var html_control = $('#play_control').html();
+    var html_list = $('#playlist').html();
+    var html_song = $('#selected_member').html();
+    if (state == 2) {
+        $('#menu_list').html(html_menu.replace(/_light.png/g, '_dark.png'));
+        $('#play_control').html(html_control.replace(/_light.png/g, '_dark.png'));
+        $('#playlist').html(html_list.replace(/_light.png/g, '_dark.png'));
+        $('#selected_member').html(html_song.replace(/_light.png/g, '_dark.png'));
+    } else {
+        $('#menu_list').html(html_menu.replace(/_dark.png/g, '_light.png'));
+        $('#play_control').html(html_control.replace(/_dark.png/g, '_light.png'));
+        $('#playlist').html(html_list.replace(/_dark.png/g, '_light.png'));
+        $('#selected_member').html(html_song.replace(/_dark.png/g, '_light.png'));
+    }
+}
+
+//プレイリスト用画像テーマ切替
+function playlist_img_toggle() {
+    var html_list = $('#playlist').html();
+    if (localStorage.getItem("theme_num") != null) {
+        if (localStorage.getItem("theme_num") == 2) {
+            $('#playlist').html(html_list.replace(/_light.png/g, '_dark.png'));
+        } else {
+            $('#playlist').html(html_list.replace(/_dark.png/g, '_light.png'));
+        }
+    } else {
+        $('#playlist').html(html_list.replace(/_dark.png/g, '_light.png'));
+    }
+
+    var html_target = $('#playlist').find('.playing');
+    if (html_target[0] != undefined) {
+        var id = html_target[0].id;
+        $('#' + id).html(html_target[0].innerHTML.replace(/_dark.png/g, '_light.png'));
+    }
 }
 
 //コンテンツ切替
 function toggle_contents(dom_id) {
     var childsAll = document.getElementById("contents").children;
-    document.getElementById("contents").scrollTop = 0; //Edgeの不具合に対処
+    document.getElementById("contents").scrollTop = 0;
     for (i = 0; i < childsAll.length; i++) {
         if (childsAll[i].id == dom_id) {
             document.getElementById(childsAll[i].id).style.display = "block";
@@ -21,28 +66,87 @@ function toggle_contents(dom_id) {
     }
 }
 
-//メンバーリスト表示切替
-function toggle_memberlist() {
-    if (document.getElementById("member").style.display == "none") {
-        document.getElementById("member").style.display = "block";
-        document.getElementById("toggle_button").value = "Hide Member List";
+//メニューボタン動作
+$(document).on('click', '.menu_list', function () {
+    var selected_id = $(this).attr('id');
+    if (selected_id == 'viewer_button') {
+        toggle_viewer();
     } else {
-        document.getElementById("member").style.display = "none";
-        document.getElementById("toggle_button").value = "Show Member List";
-        
+        toggle_contents(selected_id.replace(/_button/, ""));
+    }
+});
+
+//リピートボタン切替
+function repeat_toggle() {
+    if ($('input[id="loop"]').is(':checked')) {
+        $('input[id="loop"]').prop('checked', false);
+    } else {
+        $('input[id="loop"]').prop('checked', true);
+    }
+    repeat_button_img_toggle();
+    change_loop();
+}
+
+//リピートボタン画像切替
+function repeat_button_img_toggle() {
+    if ($('input[id="loop"]').is(':checked')) {
+        $('#repeat_img').attr('src', 'img/repeat_active.png');
+    } else {
+        if (localStorage.getItem("theme_num") != null) {
+            if (localStorage.getItem("theme_num") == 2) {
+                $('#repeat_img').attr('src', 'img/repeat_dark.png');
+            } else {
+                $('#repeat_img').attr('src', 'img/repeat_light.png');
+            }
+        } else {
+            $('#repeat_img').attr('src', 'img/repeat_light.png');
+        }
     }
 }
 
+//メンバーリスト並び替え
+function sort_member() {
+
+}
+
+//メンバーリスト選択
+$(document).on('click', '.member_list', function () {
+    var selected_id = $(this).attr('id');
+    load_db(selected_id);
+});
+
+//プレイヤー表示切替
+function toggle_viewer() {
+    if ($('#viewer').is(':visible') == true) {
+        $('#home').css('height', '100%');
+        $('#song_list').css('height', '100%');
+        $('#search').css('height', '100%');
+        $('#settings').css('height', '100%');
+    }
+    $('#viewer').slideToggle(function () {
+        if ($(this).is(':visible')) {
+            $('#home').css('height', 'calc(100% - 201px)');
+            $('#song_list').css('height', 'calc(100% - 201px)');
+            $('#search').css('height', 'calc(100% - 201px)');
+            $('#settings').css('height', 'calc(100% - 201px)');
+        }
+    });
+}
+
 //DB読み込み＆表示関数呼び出し
+var processing_flag = false;
 function load_db(member_name) {
+    if (processing_flag == true) {
+        return;
+    } else {
+        processing_flag = true;
+    }
+     
     var ele = document.getElementById("selected_member");
     ele.innerHTML = "";
-    //デバッグ用URL
-    var url = "https://raw.githubusercontent.com/Kei-141/35player/master/db/" + member_name + ".json"
-    //var url = location.protocol + "//" + location.host + "/db/" + member_name + ".json"
-    fetch(url, {
-        mode: 'cors'
-    }) .then(function (response) {
+    var url = location.protocol + "//" + location.host + "/db/" + member_name + ".json"
+    fetch(url)
+        .then(function (response) {
             return response.json();
         })
         .then(function (json) {
@@ -55,6 +159,7 @@ function load_db(member_name) {
                 gen_songlist(json[i], div_id, member_name);
             }
         });
+    processing_flag = false;
 }
 
 //曲リスト生成
@@ -64,11 +169,23 @@ function gen_songlist(json, div_id, member_name) {
     document.getElementById(div_id).appendChild(title);
 
     var thumbs = document.createElement("img");
-    var thumbs_url = "https://i.ytimg.com/vi/" + json[1] + "/hqdefault.jpg";
+    var thumbs_url = "https://i.ytimg.com/vi/" + json[1] + "/mqdefault.jpg";
     thumbs.setAttribute("src", thumbs_url);
+    thumbs.setAttribute("class", "thumbs");
     document.getElementById(div_id).appendChild(thumbs);
 
     var vid_id = "\'" + json[1] + "\'"
+
+    var add_img_src = "";
+    if (localStorage.getItem("theme_num") != null) {
+        if (localStorage.getItem("theme_num") == 2) {
+            add_img_src = "img/add_dark.png";
+        } else {
+            add_img_src = "img/add_light.png";
+        }
+    } else {
+        add_img_src = "img/add_light.png";
+    }
 
     for (j = 2; j < json.length; j++) {
         var list = document.createElement("div");
@@ -84,8 +201,8 @@ function gen_songlist(json, div_id, member_name) {
         }
 
         var button_ref = ["\'" + replace_space(member_name) + "\'", "\'" + replace_space(json[j].song_name) + "\'", "\'" + replace_space(json[j].artist_name) + "\'", json[j].start, json[j].end, vid_id];
-        list.innerHTML = "<button type='button' onclick=" + "javascript:add_playlist(" + button_ref +
-            ");>Add</button>&nbsp;" + (j - 1) + " : " + json[j].song_name + "&nbsp;/&nbsp;" + json[j].artist_name + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix;
+        list.innerHTML = '<a href="javascript:add_playlist(' + button_ref + ');"' + "><img class='add_button' src='" + add_img_src + "'></a>&nbsp;" + 
+            (j - 1) + " : " + json[j].song_name + "&nbsp;/&nbsp;" + json[j].artist_name + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix;
         document.getElementById(div_id).appendChild(list);
     }
 }
@@ -105,18 +222,26 @@ function add_playlist(liver, name, artist, start, end, vid_id) {
         time_sec_fix = time_sec;
     }
 
+    var img_type = "";
+    if (localStorage.getItem("theme_num") != null) {
+        if (localStorage.getItem("theme_num") == 2) {
+            img_type = "_dark.png";
+        } else {
+            img_type = "_light.png";
+        }
+    } else {
+        img_type = "_light.png";
+    }
+
     var song_id = "song" + (count + 1);
-    var del_id = song_id + "_del";
-    var up_id = song_id + "_up";
-    var down_id = song_id + "_down";
     var song_url = song_id + "_url";
     var song_start = song_id + "_start";
     var song_end = song_id + "_end";
     var song = document.createElement("div");
     song.setAttribute("id", song_id);
-    song.innerHTML = "<img src='" + liver_thumbs_path + "' />" + "<span>&nbsp;" + (count + 1) + "&nbsp;:&nbsp;" + name + "&nbsp;/&nbsp;" + artist + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix + "</span >" +
+    song.innerHTML = "<img class='liver_img' src='" + liver_thumbs_path + "' />" + "<span>&nbsp;" + (count + 1) + "&nbsp;:&nbsp;" + name + "&nbsp;/&nbsp;" + artist + "&nbsp;/&nbsp;" + time_min + ":" + time_sec_fix + "&nbsp;</span>" +
         "<var id='" + song_url + "'>" + vid_id + "</var>" + "<var id='" + song_start + "'>" + start + "</var>" + "<var id='" + song_end + "'>" + end + "</var>" +
-        "<br><input " + "id='" + del_id + "' type='button' value='Del' onclick='del_list(this.id)' />" + "<input " + "id='" + up_id + "' type='button' value='↑' onclick='up_list(this.id)' />" + "<input " + "id='" + down_id + "' type='button' value='↓' onclick='down_list(this.id)' />";
+        "<br>" + "<a href=\"javascript:del_list(\'" + song_id + "\');\"><img class=\'list_control_img\' src=\'img/del" + img_type + "\'></a><a href=\"javascript:down_list(\'" + song_id + "\');\"><img class=\'list_control_img\' src=\'img/down" + img_type + "\'></a><a href=\"javascript:up_list(\'" + song_id + "\');\"><img class=\'list_control_img\' src=\'img/up" + img_type + "\'></a>";
     document.getElementById("playlist").appendChild(song);
     save_playlist();
 }
@@ -131,6 +256,7 @@ var now_playing = 0;
 var playing_id;
 
 //プレイリスト再生
+var slp_chk;
 function play_list() {
     var chk_elem = document.getElementById("playlist")
     if (chk_elem.innerHTML == "") {
@@ -150,6 +276,7 @@ function play_list() {
         'startSeconds': document.getElementById(video_start).textContent,
         'endSeconds': document.getElementById(video_end).textContent
     })
+    playlist_img_toggle();
 }
 
 //APIロード時に自動実行
@@ -161,7 +288,6 @@ function onYouTubeIframeAPIReady() {
         videoId: 'X9zw0QF12Kc', //サクラカゼ
         playerVars: {
             'rel': 0,
-            'origin': location.protocol + '//' + location.hostname + '/'
         },
         events: {
             'onStateChange': onPlayerStateChange
@@ -187,6 +313,7 @@ function onPlayerStateChange(event) {
         if (elem_count.childElementCount <= now_playing) {
             player.stopVideo();
             now_playing = 0;
+            playlist_img_toggle();
         } else {
             now_playing += 1;
             play_list();
@@ -250,12 +377,12 @@ function class_reset() {
         var play_elem = document.getElementById(playing_id);
         play_elem.setAttribute("class", "");
     }
+    playlist_img_toggle();
 }
 
 //リスト削除
 function del_list(id) {
-    var elem = document.getElementById(id);
-    var target = elem.parentElement;
+    var target = document.getElementById(id);
     target.remove();
     refresh_id();
     refresh_playing();
@@ -265,7 +392,7 @@ function del_list(id) {
 //リストを上へ
 function up_list(id) {
     var elem = document.getElementById(id);
-    var target = elem.parentElement.parentElement;
+    var target = elem.parentElement;
     var target_list = target.getElementsByTagName("div");
     var num = id.replace(/[^0-9]{1,}/g, '');
     var this_elem = target_list[(num - 1)];
@@ -279,7 +406,7 @@ function up_list(id) {
 //リストを下へ
 function down_list(id) {
     var elem = document.getElementById(id);
-    var target = elem.parentElement.parentElement;
+    var target = elem.parentElement;
     var target_list = target.getElementsByTagName("div");
     var num = id.replace(/[^0-9]{1,}/g, '');
     var this_elem = target_list[(num - 1)];
@@ -326,19 +453,18 @@ function refresh_playing() {
     if (flag == false) {
         play_stop();
     }
+    playlist_img_toggle();
 }
 
 //テーマ変更＆LocalStrageに設定を保存
-function change_theme(css_path, num) {
-    changeStyle(css_path);
-    localStorage.setItem('theme', css_path);
-    localStorage.setItem('theme_num', num);
+function change_theme(state) {
+    localStorage.setItem('theme_num', state);
+    changeStyle(state);
 }
 
 //Loop設定変更＆LocalStrageに設定を保存
 function change_loop() {
-    var elem = document.getElementById("loop");
-    if (elem.checked == true) {
+    if ($('input[id="loop"]').prop('checked') == true) {
         localStorage.setItem('loop', 1);
     } else {
         localStorage.setItem('loop', 0);
@@ -347,36 +473,34 @@ function change_loop() {
 
 //プレイリスト変更時LocalStrageに保存
 function save_playlist() {
-    var elem = document.getElementById("playlist");
-    var text = elem.innerHTML;
+    var text = $('#playlist').html();
     localStorage.setItem("playlist", text);
 }
 
 //初期設定（LocalStrage読み込み）
 function initialize() {
-    //テーマ読み込み＆ラジオボタン設定
-    if (localStorage.getItem("theme") != null) {
-        changeStyle(localStorage.getItem("theme"));
-        if (localStorage.getItem("theme_num") == 2) {
-            var elem = document.getElementById("dark");
-            elem.checked = true;
-        }
-    }
+    //Player非表示
+    $('#viewer').hide();
 
     //Loop設定読み込み＆チェックボタン設定
     if (localStorage.getItem("loop") != null) {
         if (localStorage.getItem("loop") == 1) {
-            var elem = document.getElementById("loop");
-            elem.checked = true;
+            $('input[id="loop"]').prop('checked', true);
+            repeat_button_img_toggle();
         }
     }
 
     //プレイリスト読み込み
-    var elem = document.getElementById("playlist");
     var text = localStorage.getItem("playlist");
     if (text != null) {
-        text = text.replace(/ class="playing"/, "");
-        text = text.replace(/ class/, "");
-        elem.innerHTML = text;
+        $('#playlist').html(text.replace(/ class="playing"/, ""));
+    }
+
+    //テーマ読み込み＆ラジオボタン設定
+    if (localStorage.getItem("theme_num") != null) {
+        if (localStorage.getItem("theme_num") == 2) {
+            changeStyle(localStorage.getItem("theme_num"));
+            $('input[id="dark"]').prop('checked', true);
+        }
     }
 }
