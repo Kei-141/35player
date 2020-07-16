@@ -1,5 +1,619 @@
 ﻿[
   [
+    "【歌枠】復活の歌祭！！【ホロライブ / 星街すいせい】",
+    "dl1OGDDrmFc",
+    {
+      "song_name": "永遠の不在証明",
+      "artist_name": "東京事変",
+      "start": "113",
+      "end": "373"
+    },
+    {
+      "song_name": "夜に駆ける",
+      "artist_name": "YOASOBI",
+      "start": "555",
+      "end": "820"
+    },
+    {
+      "song_name": "お勉強しといてよ",
+      "artist_name": "ずっと真夜中でいいのに。",
+      "start": "821",
+      "end": "1100"
+    },
+    {
+      "song_name": "イジワルしないで抱きしめてよ",
+      "artist_name": "Juice=Juice",
+      "start": "1171",
+      "end": "1413"
+    },
+    {
+      "song_name": "Sunday Morning",
+      "artist_name": "マルーン5",
+      "start": "1580",
+      "end": "1678"
+    },
+    {
+      "song_name": "桜流し",
+      "artist_name": "宇多田ヒカル",
+      "start": "1705",
+      "end": "1983"
+    },
+    {
+      "song_name": "逆光",
+      "artist_name": "坂本真綾",
+      "start": "2001",
+      "end": "2288"
+    },
+    {
+      "song_name": "A Perfect Sky",
+      "artist_name": "BONNIE PINK",
+      "start": "2307",
+      "end": "2544"
+    },
+    {
+      "song_name": "鐘を鳴らして",
+      "artist_name": "BONNIE PINK",
+      "start": "2608",
+      "end": "2849"
+    },
+    {
+      "song_name": "good night",
+      "artist_name": "Every Little Thing",
+      "start": "2857",
+      "end": "3152"
+    },
+    {
+      "song_name": "夢であるように",
+      "artist_name": "DEEN",
+      "start": "3162",
+      "end": "3433"
+    },
+    {
+      "song_name": "約束",
+      "artist_name": "今井麻美",
+      "start": "3564",
+      "end": "3800"
+    }
+  ],
+  [
+    "【ゾンビランドサガ】フランシュシュ「佐賀事変」/ 星街すいせい with ホロライブファンタジー【歌ってみた】",
+    "-wNSFmqhQsU",
+    {
+      "song_name": "佐賀事変",
+      "artist_name": "フランシュシュ",
+      "start": "0",
+      "end": "261"
+    }
+  ],
+  [
+    "25万人記念！好きに歌うわよ【ホロライブ / 星街すいせい】",
+    "2i5T7dzYJBw",
+    {
+      "song_name": "名前のない怪物",
+      "artist_name": "EGOIST",
+      "start": "90",
+      "end": "396"
+    },
+    {
+      "song_name": "丸の内サディスティック",
+      "artist_name": "椎名林檎",
+      "start": "570",
+      "end": "800"
+    },
+    {
+      "song_name": "公然の秘密",
+      "artist_name": "椎名林檎",
+      "start": "814",
+      "end": "995"
+    },
+    {
+      "song_name": "能動的三分間",
+      "artist_name": "東京事変",
+      "start": "1003",
+      "end": "1190"
+    },
+    {
+      "song_name": "本能",
+      "artist_name": "椎名林檎",
+      "start": "1197",
+      "end": "1450"
+    },
+    {
+      "song_name": "青春の瞬き",
+      "artist_name": "椎名林檎,栗山千明",
+      "start": "1482",
+      "end": "1803"
+    },
+    {
+      "song_name": "群青日和",
+      "artist_name": "東京事変",
+      "start": "1830",
+      "end": "2055"
+    },
+    {
+      "song_name": "さよならメモリーズ",
+      "artist_name": "supercell",
+      "start": "2103",
+      "end": "2468"
+    },
+    {
+      "song_name": "いけないボーダーライン",
+      "artist_name": "ワルキューレ",
+      "start": "2555",
+      "end": "2832"
+    },
+    {
+      "song_name": "ブリキノダンス",
+      "artist_name": "日向電工",
+      "start": "2890",
+      "end": "3098"
+    },
+    {
+      "song_name": "インフェルノ",
+      "artist_name": "Mrs. GREEN APPLE",
+      "start": "3118",
+      "end": "3332"
+    }
+  ],
+  [
+    "ゲリラでボカロ歌枠【ホロライブ / 星街すいせい】",
+    "KjEAw24LTdc",
+    {
+      "song_name": "月陽 ツキアカリ",
+      "artist_name": "みきとP",
+      "start": "54",
+      "end": "307"
+    },
+    {
+      "song_name": "天樂",
+      "artist_name": "ゆうゆ",
+      "start": "308",
+      "end": "587"
+    },
+    {
+      "song_name": "Aquila",
+      "artist_name": "逆衝動P",
+      "start": "601",
+      "end": "905"
+    },
+    {
+      "song_name": "シャンパーニュ・デイ",
+      "artist_name": "ナナホシ管弦楽団",
+      "start": "964",
+      "end": "1159"
+    },
+    {
+      "song_name": "敗北の少年",
+      "artist_name": "kemu",
+      "start": "1193",
+      "end": "1427"
+    },
+    {
+      "song_name": "ロキ",
+      "artist_name": "みきとP",
+      "start": "1454",
+      "end": "1679"
+    },
+    {
+      "song_name": "ベノム",
+      "artist_name": "かいりきベア",
+      "start": "1857",
+      "end": "2074"
+    }
+  ],
+  [
+    "ゲリラで歌枠【ホロライブ / 星街すいせい】",
+    "Nc3KBd5eCrI",
+    {
+      "song_name": "いのちの名前",
+      "artist_name": "木村弓",
+      "start": "116",
+      "end": "349"
+    },
+    {
+      "song_name": "rain stops, good-bye",
+      "artist_name": "におP",
+      "start": "365",
+      "end": "685"
+    },
+    {
+      "song_name": "夕立のりぼん",
+      "artist_name": "みきとP",
+      "start": "742",
+      "end": "1013"
+    },
+    {
+      "song_name": "小夜子",
+      "artist_name": "みきとP",
+      "start": "1095",
+      "end": "1345"
+    },
+    {
+      "song_name": "まとい",
+      "artist_name": "みきとP",
+      "start": "1451",
+      "end": "1769"
+    },
+    {
+      "song_name": "少女レイ",
+      "artist_name": "みきとP",
+      "start": "1851",
+      "end": "1937"
+    },
+    {
+      "song_name": "アイネクライネ",
+      "artist_name": "米津玄師",
+      "start": "1988",
+      "end": "2116"
+    },
+    {
+      "song_name": "いかないで",
+      "artist_name": "想太",
+      "start": "2127",
+      "end": "2379"
+    },
+    {
+      "song_name": "深海少女",
+      "artist_name": "ゆうゆ",
+      "start": "2615",
+      "end": "2699"
+    }
+  ],
+  [
+    "【歌枠】チャンネル登録２０万人記念歌枠！【ホロライブ / 星街すいせい】",
+    "LyyvAhTt_I4",
+    {
+      "song_name": "アフターダーク",
+      "artist_name": "ASIAN KUNG-FU GENERATION",
+      "start": "137",
+      "end": "332"
+    },
+    {
+      "song_name": "ALONES",
+      "artist_name": "Aqua Timez",
+      "start": "333",
+      "end": "597"
+    },
+    {
+      "song_name": "リライト",
+      "artist_name": "ASIAN KUNG-FU GENERATION",
+      "start": "599",
+      "end": "827"
+    },
+    {
+      "song_name": "fake town baby",
+      "artist_name": "UNISON SQUARE GARDEN",
+      "start": "979",
+      "end": "1245"
+    },
+    {
+      "song_name": "シャルル",
+      "artist_name": "バルーン",
+      "start": "1255",
+      "end": "1485"
+    },
+    {
+      "song_name": "だから僕は音楽を辞めた",
+      "artist_name": "ヨルシカ",
+      "start": "1491",
+      "end": "1736"
+    },
+    {
+      "song_name": "chAngE",
+      "artist_name": "miwa",
+      "start": "1740",
+      "end": "1990"
+    },
+    {
+      "song_name": "アスノヨゾラ哨戒班",
+      "artist_name": "Orangestar",
+      "start": "1997",
+      "end": "2173"
+    },
+    {
+      "song_name": "ノーダウト",
+      "artist_name": "Official髭男dism",
+      "start": "2405",
+      "end": "2605"
+    },
+    {
+      "song_name": "宿命",
+      "artist_name": "Official髭男dism",
+      "start": "2606",
+      "end": "2884"
+    },
+    {
+      "song_name": "ないものねだり",
+      "artist_name": "KANA-BOON",
+      "start": "2886",
+      "end": "3147"
+    },
+    {
+      "song_name": "シルエット",
+      "artist_name": "KANA-BOON",
+      "start": "3159",
+      "end": "3399"
+    }
+  ],
+  [
+    "【歌枠】歌う【ホロライブ / 星街すいせい】",
+    "IRr6aAS3zLQ",
+    {
+      "song_name": "新宝島",
+      "artist_name": "サカナクション",
+      "start": "113",
+      "end": "413"
+    },
+    {
+      "song_name": "チェリー",
+      "artist_name": "スピッツ",
+      "start": "483",
+      "end": "747"
+    },
+    {
+      "song_name": "海の幽霊",
+      "artist_name": "米津玄師",
+      "start": "774",
+      "end": "1008"
+    },
+    {
+      "song_name": "LOSER",
+      "artist_name": "米津玄師",
+      "start": "1014",
+      "end": "1259"
+    },
+    {
+      "song_name": "UNION",
+      "artist_name": "OxT",
+      "start": "1301",
+      "end": "1526"
+    },
+    {
+      "song_name": "まもりたい",
+      "artist_name": "BoA",
+      "start": "1560",
+      "end": "1778"
+    },
+    {
+      "song_name": "Flying",
+      "artist_name": "GARNET CROW",
+      "start": "1879",
+      "end": "1983"
+    },
+    {
+      "song_name": "夢であるように",
+      "artist_name": "DEEN",
+      "start": "2026",
+      "end": "2217"
+    },
+    {
+      "song_name": "冒険彗星",
+      "artist_name": "榎本くるみ",
+      "start": "2240",
+      "end": "2586"
+    },
+    {
+      "song_name": "愛を伝えたいだとか",
+      "artist_name": "あいみょん",
+      "start": "2608",
+      "end": "2853"
+    },
+    {
+      "song_name": "Knights the Phantom Thief",
+      "artist_name": "Knights",
+      "start": "2900",
+      "end": "3121"
+    },
+    {
+      "song_name": "だから僕は音楽をやめた",
+      "artist_name": "ヨルシカ",
+      "start": "3178",
+      "end": "3427"
+    }
+  ],
+  [
+    "【歌枠】ゆる～っとうたう～🎶【ホロライブ / 星街すいせい】",
+    "NZ4bo5Wy3v4",
+    {
+      "song_name": "理想論",
+      "artist_name": "におP",
+      "start": "158",
+      "end": "423"
+    },
+    {
+      "song_name": "再生",
+      "artist_name": "におP",
+      "start": "429",
+      "end": "612"
+    },
+    {
+      "song_name": "再生",
+      "artist_name": "におP",
+      "start": "615",
+      "end": "835"
+    },
+    {
+      "song_name": "深海のリトルクライ",
+      "artist_name": "sasakureUK,土岐麻子",
+      "start": "842",
+      "end": "1097"
+    },
+    {
+      "song_name": "バスケットワーム",
+      "artist_name": "ナポリP",
+      "start": "1103",
+      "end": "1304"
+    },
+    {
+      "song_name": "ラブ＆デストロイ",
+      "artist_name": "ナポリP",
+      "start": "1352",
+      "end": "1567"
+    },
+    {
+      "song_name": "世田谷ナイトサファリ",
+      "artist_name": "みきとP",
+      "start": "1572",
+      "end": "1851"
+    },
+    {
+      "song_name": "ピアノ×フォルテ×スキャンダル",
+      "artist_name": "OSTER project",
+      "start": "1904",
+      "end": "2138"
+    },
+    {
+      "song_name": "アルビノ",
+      "artist_name": "buzzG",
+      "start": "2143",
+      "end": "2336"
+    },
+    {
+      "song_name": "快晴",
+      "artist_name": "Orangestar",
+      "start": "2508",
+      "end": "2762"
+    },
+    {
+      "song_name": "モザイクロール",
+      "artist_name": "DECO*27",
+      "start": "2846",
+      "end": "3033"
+    },
+    {
+      "song_name": "ユートピア",
+      "artist_name": "KEI",
+      "start": "3055",
+      "end": "3330"
+    }
+  ],
+  [
+    "NEXT COLOR PLANET / 星街すいせい",
+    "vQHVGXdcqEQ",
+    {
+      "song_name": "NEXT COLOR PLANET",
+      "artist_name": "星街すいせい",
+      "start": "0",
+      "end": "260"
+    }
+  ],
+  [
+    "【歌枠】ホワイトデーらしいから歌う【ホロライブ / 星街すいせい】",
+    "LQNcPHQ2WvU",
+    {
+      "song_name": "僕らの戦場",
+      "artist_name": "ワルキューレ",
+      "start": "141",
+      "end": "404"
+    },
+    {
+      "song_name": "涙目爆発音",
+      "artist_name": "ワルキューレ",
+      "start": "506",
+      "end": "762"
+    },
+    {
+      "song_name": "Absolute5",
+      "artist_name": "ワルキューレ",
+      "start": "768",
+      "end": "1031"
+    },
+    {
+      "song_name": "紅蓮華",
+      "artist_name": "LiSA",
+      "start": "1032",
+      "end": "1270"
+    },
+    {
+      "song_name": "不確定性☆COSMIC MOVEMENT",
+      "artist_name": "ワルキューレ",
+      "start": "1323",
+      "end": "1569"
+    },
+    {
+      "song_name": "逆光",
+      "artist_name": "坂本真綾",
+      "start": "1892",
+      "end": "2185"
+    },
+    {
+      "song_name": "風は予告なく吹く",
+      "artist_name": "ワルキューレ",
+      "start": "2205",
+      "end": "2568"
+    },
+    {
+      "song_name": "Angelic Angel",
+      "artist_name": "μ’s",
+      "start": "2593",
+      "end": "2890"
+    },
+    {
+      "song_name": "ノーザンクロス",
+      "artist_name": "シェリル・ノーム starring May’n",
+      "start": "2924",
+      "end": "3249"
+    }
+  ],
+  [
+    "【#星街すいせい3D】全編ライブ！歌って踊る姿を見てください！✨【ホロライブ / 星街すいせい】",
+    "FZnG1t34wCs",
+    {
+      "song_name": "天球、彗星は夜を跨いで",
+      "artist_name": "星街すいせい",
+      "start": "95",
+      "end": "358"
+    },
+    {
+      "song_name": "Neo stream",
+      "artist_name": "ワルキューレ",
+      "start": "568",
+      "end": "844"
+    },
+    {
+      "song_name": "Absolute 5",
+      "artist_name": "ワルキューレ",
+      "start": "863",
+      "end": "1128"
+    },
+    {
+      "song_name": "射手座☆午後九時Don’t be late",
+      "artist_name": "シェリルノーム",
+      "start": "1148",
+      "end": "1494"
+    },
+    {
+      "song_name": "共鳴世界の存在論",
+      "artist_name": "二宮飛鳥",
+      "start": "1745",
+      "end": "2004"
+    },
+    {
+      "song_name": "Hotel moonside",
+      "artist_name": "速水奏",
+      "start": "2018",
+      "end": "2349"
+    },
+    {
+      "song_name": "Daydream Warrior",
+      "artist_name": "Aqours",
+      "start": "2384",
+      "end": "2658"
+    },
+    {
+      "song_name": "キラメキライダー☆",
+      "artist_name": "hololive IDOL PROJECT",
+      "start": "2921",
+      "end": "3211"
+    },
+    {
+      "song_name": "comet",
+      "artist_name": "星街すいせい",
+      "start": "3238",
+      "end": "3491"
+    }
+  ],
+  [
     "ほしまちすたじお【#3】",
     "K1A2169xb68",
     {
