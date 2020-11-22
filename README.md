@@ -18,4 +18,4 @@
 - 曲データ作成用の支援ツールを開発する
 
 ## 開発者
-Kei-141 [Twitter](https://twitter.com/Kei_141_)
+Kei-141 [Twitter](https://twitter.com/_Kei_141)
